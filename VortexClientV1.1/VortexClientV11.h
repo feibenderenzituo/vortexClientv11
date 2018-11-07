@@ -86,7 +86,7 @@ private:
 	QTcpSocket *TcpSocketList;
 	QString *FileNameList;
 	QFile **FileList;
-	QString *Addr;
+	////QString *Addr;
 	QString *Port;
 	QString *WriteBuff;
 };
