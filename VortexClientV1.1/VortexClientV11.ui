@@ -1,0 +1,920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>VortexClientV11Class</class>
+ <widget class="QMainWindow" name="VortexClientV11Class">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>848</width>
+    <height>666</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>VortexClientV11</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>9</y>
+      <width>820</width>
+      <height>590</height>
+     </rect>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Tab 1</string>
+     </attribute>
+     <layout class="QGridLayout" name="gridLayout">
+      <item row="0" column="0">
+       <widget class="QGroupBox" name="Tx1GroupBox">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 1</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <item row="0" column="0">
+          <widget class="QLabel" name="Tx1AddrLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>IP 地址：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="Tx1Addr">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>192.168.101.102</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="Tx1PortLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>端口号：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="Tx1Port">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>65536</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QPushButton" name="Tx1connect">
+           <property name="text">
+            <string>连接</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="4">
+          <widget class="QLineEdit" name="Tx1FilePath">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QPushButton" name="Tx1Open">
+           <property name="text">
+            <string>打开</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QPushButton" name="Tx1Transmit">
+           <property name="text">
+            <string>发送</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2" colspan="3">
+          <widget class="QPushButton" name="Tx1ClearScreen">
+           <property name="text">
+            <string>清屏</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="5">
+          <widget class="QTextBrowser" name="Tx1TextBrowser">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QGroupBox" name="Tx2GroupBox">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 2</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <item row="0" column="0">
+          <widget class="QLabel" name="Tx1AddrLabel_2">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>IP 地址：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="Tx2Addr">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>192.168.101.102</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="Tx2PortLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>端口号：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="Tx2Port">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>65536</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QPushButton" name="Tx2connect">
+           <property name="text">
+            <string>连接</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="4">
+          <widget class="QLineEdit" name="Tx2FilePath">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QPushButton" name="Tx2Open">
+           <property name="text">
+            <string>打开</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QPushButton" name="Tx2Transmit">
+           <property name="text">
+            <string>发送</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2" colspan="3">
+          <widget class="QPushButton" name="Tx2ClearScreen">
+           <property name="text">
+            <string>清屏</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="5">
+          <widget class="QTextBrowser" name="Tx2TextBrowser">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QGroupBox" name="Tx3GroupBox">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 3</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_5">
+         <item row="0" column="0">
+          <widget class="QLabel" name="Tx3AddrLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>IP 地址：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="Tx3Addr">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>192.168.101.102</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="Tx3PortLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>端口号：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="Tx3Port">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>65536</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QPushButton" name="Tx3connect">
+           <property name="text">
+            <string>连接</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="4">
+          <widget class="QLineEdit" name="Tx3FilePath">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QPushButton" name="Tx3Open">
+           <property name="text">
+            <string>打开</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QPushButton" name="Tx3Transmit">
+           <property name="text">
+            <string>发送</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2" colspan="3">
+          <widget class="QPushButton" name="Tx3ClearScreen">
+           <property name="text">
+            <string>清屏</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="5">
+          <widget class="QTextBrowser" name="Tx3TextBrowser">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QGroupBox" name="Tx4GroupBox">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 4</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_2">
+         <item row="0" column="0">
+          <widget class="QLabel" name="Tx4AddrLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>IP 地址：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="Tx4Addr">
+           <property name="minimumSize">
+            <size>
+             <width>100</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>192.168.101.102</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="Tx4PortLabel">
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>端口号：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="Tx4Port">
+           <property name="minimumSize">
+            <size>
+             <width>40</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>40</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>65536</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4">
+          <widget class="QPushButton" name="Tx4connect">
+           <property name="text">
+            <string>连接</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="4">
+          <widget class="QLineEdit" name="Tx4FilePath">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4">
+          <widget class="QPushButton" name="Tx4Open">
+           <property name="text">
+            <string>打开</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0" colspan="2">
+          <widget class="QPushButton" name="Tx4Transmit">
+           <property name="text">
+            <string>发送</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2" colspan="3">
+          <widget class="QPushButton" name="Tx4ClearScreen">
+           <property name="text">
+            <string>清屏</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="0" colspan="5">
+          <widget class="QTextBrowser" name="Tx4TextBrowser">
+           <property name="font">
+            <font>
+             <pointsize>9</pointsize>
+            </font>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Tab 2</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>848</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="VortexClientV11.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>Tx1connect</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx1Connecton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx1Open</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx1Open_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx1Transmit</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx1Transmit_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx1ClearScreen</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx1ClearScrean_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>312</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx2connect</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx2Connecton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>774</x>
+     <y>113</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx2Open</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx2Open_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>774</x>
+     <y>144</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx2Transmit</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx2Transmit_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>525</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx2ClearScreen</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx2ClearScrean_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>716</x>
+     <y>175</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx3connect</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx3Connecton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>389</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx3Open</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx3Open_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>370</x>
+     <y>420</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx3Transmit</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx3Transmit_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>139</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx3ClearScreen</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx3ClearScrean_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>329</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx4connect</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx4Connecton_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>774</x>
+     <y>389</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx4Open</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx4Open_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>774</x>
+     <y>420</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx4Transmit</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx4Transmit_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>543</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Tx4ClearScreen</sender>
+   <signal>clicked()</signal>
+   <receiver>VortexClientV11Class</receiver>
+   <slot>Tx4ClearScrean_Clicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>733</x>
+     <y>451</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>423</x>
+     <y>332</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>Tx1Connecton_Clicked()</slot>
+  <slot>Tx2Connecton_Clicked()</slot>
+  <slot>Tx3Connecton_Clicked()</slot>
+  <slot>Tx4Connecton_Clicked()</slot>
+  <slot>Tx1Open_Clicked()</slot>
+  <slot>Tx2Open_Clicked()</slot>
+  <slot>Tx3Open_Clicked()</slot>
+  <slot>Tx4Open_Clicked()</slot>
+  <slot>Tx1Transmit_Clicked()</slot>
+  <slot>Tx2Transmit_Clicked()</slot>
+  <slot>Tx3Transmit_Clicked()</slot>
+  <slot>Tx4Transmit_Clicked()</slot>
+  <slot>Tx1ClearScrean_Clicked()</slot>
+  <slot>Tx2ClearScrean_Clicked()</slot>
+  <slot>Tx3ClearScrean_Clicked()</slot>
+  <slot>Tx4ClearScrean_Clicked()</slot>
+ </slots>
+</ui>
