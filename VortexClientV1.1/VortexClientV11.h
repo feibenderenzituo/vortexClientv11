@@ -7,7 +7,8 @@
 #include <windows.h>
 #include <QMessageBox>
 #include<QFileDialog>
-#include<WinSock2.h>
+#include <QDataStream>
+#include <QIODevice>
 
 #define TX1ADDR "192.168.102.1"
 #define TX2ADDR "192.168.102.1"
@@ -32,6 +33,9 @@
 #define TX2HEAD "EF35831"
 #define TX3HEAD "EF35832"
 #define TX4HEAD "EF35833"
+#define DATA_STREAM_VERSION  QDataStream::Qt_5_9
+
+
 class VortexClientV11 : public QMainWindow
 {
 	Q_OBJECT
@@ -76,6 +80,11 @@ private slots:
 	void Tx3Transmit_Clicked();
 	void Tx4Transmit_Clicked();
 
+	void Tx1ContinueTransmit(qint64);
+	void Tx2ContinueTransmit(qint64);
+	void Tx3ContinueTransmit(qint64);
+	void Tx4ContinueTransmit(qint64);
+
 	void Tx1ClearScrean_Clicked();
 	void Tx2ClearScrean_Clicked();
 	void Tx3ClearScrean_Clicked();
@@ -88,5 +97,10 @@ private:
 	QFile **FileList;
 	QString *Addr;
 	QString *Port;
-	QString *WriteBuff;
+	QByteArray *WriteBuff;
+	bool *TransmitState;
+	int Tx1BytesToSend, Tx1RestBytes;
+	int Tx2BytesToSend, Tx2RestBytes;
+	int Tx3BytesToSend, Tx3RestBytes;
+	int Tx4BytesToSend, Tx4RestBytes;
 };

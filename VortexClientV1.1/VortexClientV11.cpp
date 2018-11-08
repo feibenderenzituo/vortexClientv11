@@ -2,6 +2,7 @@
 #pragma execution_character_set("utf-8")
 #pragma comment(lib, "ws2_32.lib")  
 
+
 VortexClientV11::VortexClientV11(QWidget *parent)
 	: QMainWindow(parent)
 {
@@ -11,8 +12,8 @@ VortexClientV11::VortexClientV11(QWidget *parent)
 	Addr = new QString[4];
 	Port = new QString[4];
 	FileList = new QFile*[4];
-	WriteBuff = new QString[4];
-	WSADATA wsaData;
+	WriteBuff = new QByteArray[4];
+	TransmitState = new bool[4];
 
 	connect(this, SIGNAL(Tx1IsConnected()), this, SLOT(Tx1ConnectedProc()));
 	connect(this, SIGNAL(Tx2IsConnected()), this, SLOT(Tx2ConnectedProc()));
@@ -22,6 +23,10 @@ VortexClientV11::VortexClientV11(QWidget *parent)
 	connect(this, SIGNAL(Tx2IsDisconnected()), this, SLOT(Tx2DisconnectedProc()));
 	connect(this, SIGNAL(Tx3IsDisconnected()), this, SLOT(Tx3DisconnectedProc()));
 	connect(this, SIGNAL(Tx4IsDisconnected()), this, SLOT(Tx4DisconnectedProc()));
+	connect(&TcpSocketList[Tx1Num], SIGNAL(bytesWritten(qint64)), this, SLOT(Tx1ContinueTransmit(qint64)));
+	connect(&TcpSocketList[Tx2Num], SIGNAL(bytesWritten(qint64)), this, SLOT(Tx2ContinueTransmit(qint64)));
+	connect(&TcpSocketList[Tx3Num], SIGNAL(bytesWritten(qint64)), this, SLOT(Tx3ContinueTransmit(qint64)));
+	connect(&TcpSocketList[Tx4Num], SIGNAL(bytesWritten(qint64)), this, SLOT(Tx4ContinueTransmit(qint64)));
 
 	//set default
 	ui.Tx1Addr->setText(TX1ADDR);
@@ -32,6 +37,10 @@ VortexClientV11::VortexClientV11(QWidget *parent)
 	ui.Tx3Port->setText(TX3PORT);
 	ui.Tx4Addr->setText(TX4ADDR);
 	ui.Tx4Port->setText(TX4PORT);
+	TransmitState[Tx1Num] = false;
+	TransmitState[Tx2Num] = false;
+	TransmitState[Tx3Num] = false;
+	TransmitState[Tx4Num] = false;
 }
 
 void VortexClientV11::Tx1Connecton_Clicked()
@@ -46,6 +55,7 @@ void VortexClientV11::Tx1Connecton_Clicked()
 		switch (FormatState)
 		{
 			case 0:
+
 				emit Tx1IsDisconnected(); 
 				break;
 			case 1:
@@ -171,7 +181,9 @@ void VortexClientV11::Tx1Open_Clicked()
 	QString diagTitle = "打开文件";
 	FileNameList[Tx1Num] = QFileDialog::getOpenFileName(this, diagTitle, " ", filter);
 	if (!FileNameList[Tx1Num].isEmpty())
+	{
 		ui.Tx1FilePath->setText(FileNameList[Tx1Num]);
+	}
 	else
 		QMessageBox::information(this,"文件打开错误","文件打开错误,请重新选择", QMessageBox::Ok, QMessageBox::Cancel);
 }
@@ -208,60 +220,194 @@ void VortexClientV11::Tx4Open_Clicked()
 
 void VortexClientV11::Tx1Transmit_Clicked()
 {
-	FileList[Tx1Num] = new QFile(FileNameList[Tx1Num]);
-	if (!(*FileList[Tx1Num]).open(QIODevice::ReadOnly | QIODevice::Text))
+	if (!TransmitState[Tx1Num])
 	{
-		QMessageBox::information(this, "文件读取错误", "文件读取错误", QMessageBox::Ok, QMessageBox::Cancel);
-		return;
-	}
-	//WriteBuff[Tx1Num].resize(WriteBuffSize);
-	while (!(*FileList[Tx1Num]).atEnd())
-	{
-		//WriteBuff[Tx1Num].clear();
-		//WriteBuff[Tx1Num] = (*FileList[Tx1Num]).read(WriteBuffSize);
-		WriteBuff[Tx1Num] = (*FileList[Tx1Num]).readAll();
-		//QByteArray *WriteData = new QByteArray((*FileList[Tx1Num]).read(WriteBuffSize));
-		//WriteBuff[Tx1Num] = TX1HEAD + QString("1024") + WriteBuff[Tx1Num];
-		TcpSocketList[Tx1Num].write(WriteBuff[Tx1Num].toLatin1());
-		// Sleep(1);
-		//int cunt = TcpSocketList[Tx1Num].bytesToWrite();
-		/*while (TcpSocketList[Tx1Num].bytesToWrite() > 0)
+		ui.Tx1Transmit->setText("停止");
+		TransmitState[Tx1Num] = true;
+		FileList[Tx1Num] = new QFile(FileNameList[Tx1Num]);
+		if (!(*FileList[Tx1Num]).open(QIODevice::ReadOnly | QIODevice::Text))
 		{
-			int cunt = TcpSocketList[Tx1Num].bytesToWrite();
-		}*/
+			QMessageBox::information(this, "文件读取错误", "文件读取错误", QMessageBox::Ok, QMessageBox::Cancel);
+			return;
+		}
+		QDataStream OutConnector(&WriteBuff[Tx1Num], QIODevice::WriteOnly);
+		OutConnector.setVersion(DATA_STREAM_VERSION);
+		Tx1BytesToSend = FileList[Tx1Num]->size();
+		OutConnector << TX1HEAD <<QString(Tx1BytesToSend);
+		Tx1RestBytes = Tx1BytesToSend;
+		TcpSocketList[Tx1Num].write(WriteBuff[Tx1Num]);
 	}
-	//QByteArray QB1 = 10;
-	//QB1.toHex();
-	//Tx1Buff = new QByteArray((Tx1File->readAll()));
-	//TcpSocketList[Tx1Num].write(11);
+	else
+	{
+		TransmitState[Tx1Num] = false;
+		ui.Tx1Transmit->setText("发送");
+	}
 }
+
 void VortexClientV11::Tx2Transmit_Clicked()
 {
-	FileList[Tx2Num] = new QFile(FileNameList[Tx2Num]);
-	if (!(*FileList[Tx2Num]).open(QIODevice::ReadOnly | QIODevice::Text))
+	if (!TransmitState[Tx2Num])
 	{
-		QMessageBox::information(this, "文件读取错误", "文件读取错误", QMessageBox::Ok, QMessageBox::Cancel);
-		return;
+		ui.Tx2Transmit->setText("停止");
+		TransmitState[Tx2Num] = true;
+		FileList[Tx2Num] = new QFile(FileNameList[Tx2Num]);
+		if (!(*FileList[Tx2Num]).open(QIODevice::ReadOnly | QIODevice::Text))
+		{
+			QMessageBox::information(this, "文件读取错误", "文件读取错误", QMessageBox::Ok, QMessageBox::Cancel);
+			return;
+		}
+		QDataStream OutConnector(&WriteBuff[Tx2Num], QIODevice::WriteOnly);
+		OutConnector.setVersion(DATA_STREAM_VERSION);
+		Tx2BytesToSend = FileList[Tx2Num]->size();
+		OutConnector << TX2HEAD << QString(Tx2BytesToSend);
+		Tx2RestBytes = Tx2BytesToSend;
+		TcpSocketList[Tx2Num].write(WriteBuff[Tx2Num]);
+	}
+	else
+	{
+		TransmitState[Tx2Num] = false;
+		ui.Tx2Transmit->setText("发送");
 	}
 }
 void VortexClientV11::Tx3Transmit_Clicked()
 {
-	FileList[Tx3Num] = new QFile(FileNameList[Tx3Num]);
-	if (!(*FileList[Tx3Num]).open(QIODevice::ReadOnly | QIODevice::Text))
+	if (!TransmitState[Tx3Num])
 	{
-		QMessageBox::information(this, "文件读取错误", "文件读取错误", QMessageBox::Ok, QMessageBox::Cancel);
-		return;
+		ui.Tx3Transmit->setText("停止");
+		TransmitState[Tx3Num] = true;
+		FileList[Tx3Num] = new QFile(FileNameList[Tx3Num]);
+		if (!(*FileList[Tx3Num]).open(QIODevice::ReadOnly | QIODevice::Text))
+		{
+			QMessageBox::information(this, "文件读取错误", "文件读取错误", QMessageBox::Ok, QMessageBox::Cancel);
+			return;
+		}
+		QDataStream OutConnector(&WriteBuff[Tx3Num], QIODevice::WriteOnly);
+		OutConnector.setVersion(DATA_STREAM_VERSION);
+		Tx3BytesToSend = FileList[Tx3Num]->size();
+		OutConnector << TX3HEAD << QString(Tx3BytesToSend);
+		Tx3RestBytes = Tx3BytesToSend;
+		TcpSocketList[Tx3Num].write(WriteBuff[Tx3Num]);
+	}
+	else
+	{
+		TransmitState[Tx3Num] = false;
+		ui.Tx3Transmit->setText("发送");
 	}
 }
 void VortexClientV11::Tx4Transmit_Clicked()
 {
-	FileList[Tx4Num] = new QFile(FileNameList[Tx4Num]);
-	if (!(*FileList[Tx4Num]).open(QIODevice::ReadOnly | QIODevice::Text))
+	if (!TransmitState[Tx4Num])
 	{
-		QMessageBox::information(this, "文件读取错误", "文件读取错误", QMessageBox::Ok, QMessageBox::Cancel);
-		return;
+		ui.Tx4Transmit->setText("停止");
+		TransmitState[Tx4Num] = true;
+		FileList[Tx4Num] = new QFile(FileNameList[Tx4Num]);
+		if (!(*FileList[Tx4Num]).open(QIODevice::ReadOnly | QIODevice::Text))
+		{
+			QMessageBox::information(this, "文件读取错误", "文件读取错误", QMessageBox::Ok, QMessageBox::Cancel);
+			return;
+		}
+		QDataStream OutConnector(&WriteBuff[Tx4Num], QIODevice::WriteOnly);
+		OutConnector.setVersion(DATA_STREAM_VERSION);
+		Tx4BytesToSend = FileList[Tx4Num]->size();
+		OutConnector << TX4HEAD << QString(Tx4BytesToSend);
+		Tx4RestBytes = Tx4BytesToSend;
+		TcpSocketList[Tx4Num].write(WriteBuff[Tx4Num]);
+	}
+	else
+	{
+		TransmitState[Tx4Num] = false;
+		ui.Tx4Transmit->setText("发送");
 	}
 }
+
+void VortexClientV11::Tx1ContinueTransmit(qint64 SentBytes)
+{
+	if (TransmitState[Tx1Num])
+	{
+		if (Tx1RestBytes > 0)
+		{
+			QByteArray buf = (*FileList[Tx1Num]).read(qMin(WriteBuffSize, Tx1RestBytes));
+			Tx1RestBytes -= TcpSocketList[Tx1Num].write(buf);
+		}
+		else
+		{
+			Tx1RestBytes = Tx1BytesToSend;
+			(*FileList[Tx1Num]).seek(0);
+			TcpSocketList[Tx1Num].write(WriteBuff[Tx1Num]);
+		}
+	}
+	else
+	{
+		FileList[Tx1Num]->close();
+	}
+}
+
+void VortexClientV11::Tx2ContinueTransmit(qint64 SentBytes)
+{
+	if (TransmitState[Tx2Num])
+	{
+		if (Tx2RestBytes > 0)
+		{
+			QByteArray buf = (*FileList[Tx2Num]).read(qMin(WriteBuffSize, Tx2RestBytes));
+			Tx2RestBytes -= TcpSocketList[Tx2Num].write(buf);
+		}
+		else
+		{
+			Tx2RestBytes = Tx2BytesToSend;
+			(*FileList[Tx2Num]).seek(0);
+			TcpSocketList[Tx2Num].write(WriteBuff[Tx2Num]);
+		}
+	}
+	else
+	{
+		FileList[Tx2Num]->close();
+	}
+}
+
+void VortexClientV11::Tx3ContinueTransmit(qint64 SentBytes)
+{
+	if (TransmitState[Tx3Num])
+	{
+		if (Tx3RestBytes > 0)
+		{
+			QByteArray buf = (*FileList[Tx3Num]).read(qMin(WriteBuffSize, Tx3RestBytes));
+			Tx3RestBytes -= TcpSocketList[Tx3Num].write(buf);
+		}
+		else
+		{
+			Tx3RestBytes = Tx3BytesToSend;
+			(*FileList[Tx3Num]).seek(0);
+			TcpSocketList[Tx3Num].write(WriteBuff[Tx3Num]);
+		}
+	}
+	else
+	{
+		FileList[Tx3Num]->close();
+	}
+}
+
+void VortexClientV11::Tx4ContinueTransmit(qint64 SentBytes)
+{
+	if (TransmitState[Tx4Num])
+	{
+		if (Tx4RestBytes > 0)
+		{
+			QByteArray buf = (*FileList[Tx4Num]).read(qMin(WriteBuffSize, Tx4RestBytes));
+			Tx4RestBytes -= TcpSocketList[Tx4Num].write(buf);
+		}
+		else
+		{
+			Tx4RestBytes = Tx4BytesToSend;
+			(*FileList[Tx4Num]).seek(0);
+			TcpSocketList[Tx4Num].write(WriteBuff[Tx4Num]);
+		}
+	}
+	else
+	{
+		FileList[Tx4Num]->close();
+	}
+}
+
 void VortexClientV11::Tx1ClearScrean_Clicked()
 {
 	ui.Tx1TextBrowser->setText("");
@@ -409,8 +555,6 @@ void VortexClientV11::Tx4DisconnectedProc()
 		ui.Tx4connect->setEnabled(true);
 	}
 }
-
-
 int VortexClientV11::InputAddrFormatCheck(QString Addr, QString Port)
 {
 	//AddrFormat Check
