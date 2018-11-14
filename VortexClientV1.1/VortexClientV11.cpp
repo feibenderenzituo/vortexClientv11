@@ -8,11 +8,14 @@ VortexClientV11::VortexClientV11(QWidget *parent)
 {
 	ui.setupUi(this);
 	TcpSocketList = new QTcpSocket[4];
+	RcvTcpSocketList = new QTcpSocket[4];
 	FileNameList = new QString[4];
 	Addr = new QString[4];
 	Port = new QString[4];
 	FileList = new QFile*[4];
 	WriteBuff = new QByteArray[4];
+	ReadBuff = new QString[4];
+
 	TransmitState = new bool[4];
 
 	connect(this, SIGNAL(Tx1IsConnected()), this, SLOT(Tx1ConnectedProc()));
@@ -27,6 +30,14 @@ VortexClientV11::VortexClientV11(QWidget *parent)
 	connect(&TcpSocketList[Tx2Num], SIGNAL(bytesWritten(qint64)), this, SLOT(Tx2ContinueTransmit(qint64)));
 	connect(&TcpSocketList[Tx3Num], SIGNAL(bytesWritten(qint64)), this, SLOT(Tx3ContinueTransmit(qint64)));
 	connect(&TcpSocketList[Tx4Num], SIGNAL(bytesWritten(qint64)), this, SLOT(Tx4ContinueTransmit(qint64)));
+	connect(&RcvTcpSocketList[Tx1Num], SIGNAL(readyRead()), this, SLOT(Tx1ReceiveData()));
+	connect(&RcvTcpSocketList[Tx2Num], SIGNAL(readyRead()), this, SLOT(Tx2ReceiveData()));
+	connect(&RcvTcpSocketList[Tx3Num], SIGNAL(readyRead()), this, SLOT(Tx3ReceiveData()));
+	connect(&RcvTcpSocketList[Tx4Num], SIGNAL(readyRead()), this, SLOT(Tx4ReceiveData()));
+	connect(this, SIGNAL(Tx1ParamToDisplay(QString)), this, SLOT(Tx1ParamDisplay(QString)));
+	connect(this, SIGNAL(Tx2ParamToDisplay(QString)), this, SLOT(Tx2ParamDisplay(QString)));
+	connect(this, SIGNAL(Tx3ParamToDisplay(QString)), this, SLOT(Tx3ParamDisplay(QString)));
+	connect(this, SIGNAL(Tx4ParamToDisplay(QString)), this, SLOT(Tx4ParamDisplay(QString)));
 
 	//set default
 	ui.Tx1Addr->setText(TX1ADDR);
@@ -37,12 +48,38 @@ VortexClientV11::VortexClientV11(QWidget *parent)
 	ui.Tx3Port->setText(TX3PORT);
 	ui.Tx4Addr->setText(TX4ADDR);
 	ui.Tx4Port->setText(TX4PORT);
+
 	TransmitState[Tx1Num] = false;
 	TransmitState[Tx2Num] = false;
 	TransmitState[Tx3Num] = false;
 	TransmitState[Tx4Num] = false;
-}
 
+	ParamLengthList.push_back(0);
+	ParamLengthList.push_back(PARAME0LENGTH);
+	ParamLengthList.push_back(PARAME1LENGTH);
+	ParamLengthList.push_back(PARAME2LENGTH);
+	ParamLengthList.push_back(PARAME3LENGTH);
+	ParamLengthList.push_back(PARAME4LENGTH);
+	ParamLengthList.push_back(PARAME5LENGTH);
+	ParamLengthList.push_back(PARAME6LENGTH);
+	ParamLengthList.push_back(PARAME7LENGTH);
+	ParamLengthList.push_back(PARAME8LENGTH);
+	ParamLengthList.push_back(PARAME9LENGTH);
+	ParamLengthList.push_back(PARAME10LENGTH);
+
+	Tx1ParamList.push_back(ui.Tx1Param0);
+	Tx1ParamList.push_back(ui.Tx1Param1);
+	Tx1ParamList.push_back(ui.Tx1Param2);
+	Tx1ParamList.push_back(ui.Tx1Param3);
+	Tx1ParamList.push_back(ui.Tx1Param4);
+	Tx1ParamList.push_back(ui.Tx1Param5);
+	Tx1ParamList.push_back(ui.Tx1Param6);
+	Tx1ParamList.push_back(ui.Tx1Param7);
+	Tx1ParamList.push_back(ui.Tx1Param8);
+	Tx1ParamList.push_back(ui.Tx1Param9);
+	Tx1ParamList.push_back(ui.Tx1Param10);
+}
+//click_button process procedure
 void VortexClientV11::Tx1Connecton_Clicked()
 {
 	if (TcpSocketList[Tx1Num].state() == QAbstractSocket::ConnectedState)
@@ -174,7 +211,7 @@ void VortexClientV11::Tx4Connecton_Clicked()
 	}
 }
 
-
+//open_button process procedure
 void VortexClientV11::Tx1Open_Clicked()
 {
 	QString filter = "Allfile(*.*);;txt(*.txt)";
@@ -217,7 +254,7 @@ void VortexClientV11::Tx4Open_Clicked()
 	else
 		QMessageBox::information(this, "文件打开错误", "文件打开错误,请重新选择", QMessageBox::Ok, QMessageBox::Cancel);
 }
-
+//transmit_button process procedure
 void VortexClientV11::Tx1Transmit_Clicked()
 {
 	if (!TransmitState[Tx1Num])
@@ -243,7 +280,6 @@ void VortexClientV11::Tx1Transmit_Clicked()
 		ui.Tx1Transmit->setText("发送");
 	}
 }
-
 void VortexClientV11::Tx2Transmit_Clicked()
 {
 	if (!TransmitState[Tx2Num])
@@ -319,119 +355,14 @@ void VortexClientV11::Tx4Transmit_Clicked()
 		ui.Tx4Transmit->setText("发送");
 	}
 }
-
-void VortexClientV11::Tx1ContinueTransmit(qint64 SentBytes)
-{
-	if (TransmitState[Tx1Num])
-	{
-		if (Tx1RestBytes > 0)
-		{
-			QByteArray buf = (*FileList[Tx1Num]).read(qMin(WriteBuffSize, Tx1RestBytes));
-			Tx1RestBytes -= TcpSocketList[Tx1Num].write(buf);
-		}
-		else
-		{
-			Tx1RestBytes = Tx1BytesToSend;
-			(*FileList[Tx1Num]).seek(0);
-			TcpSocketList[Tx1Num].write(WriteBuff[Tx1Num]);
-		}
-	}
-	else
-	{
-		FileList[Tx1Num]->close();
-	}
-}
-
-void VortexClientV11::Tx2ContinueTransmit(qint64 SentBytes)
-{
-	if (TransmitState[Tx2Num])
-	{
-		if (Tx2RestBytes > 0)
-		{
-			QByteArray buf = (*FileList[Tx2Num]).read(qMin(WriteBuffSize, Tx2RestBytes));
-			Tx2RestBytes -= TcpSocketList[Tx2Num].write(buf);
-		}
-		else
-		{
-			Tx2RestBytes = Tx2BytesToSend;
-			(*FileList[Tx2Num]).seek(0);
-			TcpSocketList[Tx2Num].write(WriteBuff[Tx2Num]);
-		}
-	}
-	else
-	{
-		FileList[Tx2Num]->close();
-	}
-}
-
-void VortexClientV11::Tx3ContinueTransmit(qint64 SentBytes)
-{
-	if (TransmitState[Tx3Num])
-	{
-		if (Tx3RestBytes > 0)
-		{
-			QByteArray buf = (*FileList[Tx3Num]).read(qMin(WriteBuffSize, Tx3RestBytes));
-			Tx3RestBytes -= TcpSocketList[Tx3Num].write(buf);
-		}
-		else
-		{
-			Tx3RestBytes = Tx3BytesToSend;
-			(*FileList[Tx3Num]).seek(0);
-			TcpSocketList[Tx3Num].write(WriteBuff[Tx3Num]);
-		}
-	}
-	else
-	{
-		FileList[Tx3Num]->close();
-	}
-}
-
-void VortexClientV11::Tx4ContinueTransmit(qint64 SentBytes)
-{
-	if (TransmitState[Tx4Num])
-	{
-		if (Tx4RestBytes > 0)
-		{
-			QByteArray buf = (*FileList[Tx4Num]).read(qMin(WriteBuffSize, Tx4RestBytes));
-			Tx4RestBytes -= TcpSocketList[Tx4Num].write(buf);
-		}
-		else
-		{
-			Tx4RestBytes = Tx4BytesToSend;
-			(*FileList[Tx4Num]).seek(0);
-			TcpSocketList[Tx4Num].write(WriteBuff[Tx4Num]);
-		}
-	}
-	else
-	{
-		FileList[Tx4Num]->close();
-	}
-}
-
-void VortexClientV11::Tx1ClearScrean_Clicked()
-{
-	ui.Tx1TextBrowser->setText("");
-}
-
-void VortexClientV11::Tx2ClearScrean_Clicked()
-{
-	ui.Tx2TextBrowser->setText("");
-}
-void VortexClientV11::Tx3ClearScrean_Clicked()
-{
-	ui.Tx3TextBrowser->setText("");
-}
-void VortexClientV11::Tx4ClearScrean_Clicked()
-{
-	ui.Tx4TextBrowser->setText("");
-}
-
+   //disconnect from tx
 void VortexClientV11::Tx1ConnectedProc()
 {
 	ui.Tx1TextBrowser->append("断开连接中");
 	ui.Tx1connect->setEnabled(false);
 	TcpSocketList[Tx1Num].close();
-	while (TcpSocketList[Tx1Num].state() == QAbstractSocket::ClosingState)   //waiting for transmittion complete
+	RcvTcpSocketList[Tx1Num].close();
+	while ((TcpSocketList[Tx1Num].state() == QAbstractSocket::ClosingState)|| (RcvTcpSocketList[Tx1Num].state() == QAbstractSocket::ClosingState))   //waiting for transmittion complete
 	{
 		ui.Tx1TextBrowser->append("...");
 		Sleep(500);
@@ -482,13 +413,14 @@ void VortexClientV11::Tx4ConnectedProc()
 	ui.Tx4connect->setEnabled(true);
 	ui.Tx4connect->setText("连接");
 }
-
+   //connect to tx
 void VortexClientV11::Tx1DisconnectedProc()
 {
 	ui.Tx1TextBrowser->append("连接中");
 	ui.Tx1connect->setEnabled(false);
 	TcpSocketList[Tx1Num].connectToHost(Addr[Tx1Num], Port[Tx1Num].toInt());
-	if (TcpSocketList[Tx1Num].waitForConnected(TCPCONNECTTIMEOUT))
+	RcvTcpSocketList[Tx1Num].connectToHost(Addr[Tx1Num], Port[Tx1Num].toInt());
+	if ((TcpSocketList[Tx1Num].waitForConnected(TCPCONNECTTIMEOUT))&&(RcvTcpSocketList[Tx1Num].waitForConnected(TCPCONNECTTIMEOUT)))
 	{
 		ui.Tx1TextBrowser->append("连接成功");
 		ui.Tx1connect->setEnabled(true);
@@ -555,6 +487,178 @@ void VortexClientV11::Tx4DisconnectedProc()
 		ui.Tx4connect->setEnabled(true);
 	}
 }
+// transmit data to tx
+void VortexClientV11::Tx1ContinueTransmit(qint64 SentBytes)
+{
+	if (TransmitState[Tx1Num])
+	{
+		if (Tx1RestBytes > 0)
+		{
+			QByteArray buf = (*FileList[Tx1Num]).read(qMin(WriteBuffSize, Tx1RestBytes));
+			Tx1RestBytes -= TcpSocketList[Tx1Num].write(buf);
+		}
+		else
+		{
+			Tx1RestBytes = Tx1BytesToSend;
+			(*FileList[Tx1Num]).seek(0);
+			TcpSocketList[Tx1Num].write(WriteBuff[Tx1Num]);
+		}
+	}
+	else
+	{
+		FileList[Tx1Num]->close();
+	}
+}
+void VortexClientV11::Tx2ContinueTransmit(qint64 SentBytes)
+{
+	if (TransmitState[Tx2Num])
+	{
+		if (Tx2RestBytes > 0)
+		{
+			QByteArray buf = (*FileList[Tx2Num]).read(qMin(WriteBuffSize, Tx2RestBytes));
+			Tx2RestBytes -= TcpSocketList[Tx2Num].write(buf);
+		}
+		else
+		{
+			Tx2RestBytes = Tx2BytesToSend;
+			(*FileList[Tx2Num]).seek(0);
+			TcpSocketList[Tx2Num].write(WriteBuff[Tx2Num]);
+		}
+	}
+	else
+	{
+		FileList[Tx2Num]->close();
+	}
+}
+void VortexClientV11::Tx3ContinueTransmit(qint64 SentBytes)
+{
+	if (TransmitState[Tx3Num])
+	{
+		if (Tx3RestBytes > 0)
+		{
+			QByteArray buf = (*FileList[Tx3Num]).read(qMin(WriteBuffSize, Tx3RestBytes));
+			Tx3RestBytes -= TcpSocketList[Tx3Num].write(buf);
+		}
+		else
+		{
+			Tx3RestBytes = Tx3BytesToSend;
+			(*FileList[Tx3Num]).seek(0);
+			TcpSocketList[Tx3Num].write(WriteBuff[Tx3Num]);
+		}
+	}
+	else
+	{
+		FileList[Tx3Num]->close();
+	}
+}
+void VortexClientV11::Tx4ContinueTransmit(qint64 SentBytes)
+{
+	if (TransmitState[Tx4Num])
+	{
+		if (Tx4RestBytes > 0)
+		{
+			QByteArray buf = (*FileList[Tx4Num]).read(qMin(WriteBuffSize, Tx4RestBytes));
+			Tx4RestBytes -= TcpSocketList[Tx4Num].write(buf);
+		}
+		else
+		{
+			Tx4RestBytes = Tx4BytesToSend;
+			(*FileList[Tx4Num]).seek(0);
+			TcpSocketList[Tx4Num].write(WriteBuff[Tx4Num]);
+		}
+	}
+	else
+	{
+		FileList[Tx4Num]->close();
+	}
+}
+// receive data from tx
+void VortexClientV11::Tx1ReceiveData()
+{
+	if (RcvTcpSocketList[Tx1Num].bytesAvailable() < PARAMETERFRAMELENGTH)
+		return;
+	//int x = RcvTcpSocketList[Tx1Num].bytesAvailable();
+	ReadBuff[Tx1Num] = RcvTcpSocketList[Tx1Num].readAll();
+	emit Tx1ParamToDisplay(ReadBuff[Tx1Num]);
+	ui.Tx1TextBrowser->append(ReadBuff[Tx1Num]);
+	ReadBuff[Tx1Num].clear();
+}
+
+void VortexClientV11::Tx1ParamDisplay(QString RecvParamFrame)
+{
+	QString Head = TX1HEAD;
+	int HeadLength = Head.size();
+	int RecvFrameLength = RecvParamFrame.size();
+	for (int i = 0; i < RecvFrameLength - HeadLength; i++)
+	{
+		QString HeadToComp;
+		for (int j = i; j < HeadLength; j++)
+			HeadToComp.append(RecvParamFrame[j]); 
+		if (HeadToComp == Head)                      //
+		{
+			QString Param0;
+			for (int k = i + HeadLength - 1; k < i + HeadLength - 1+5; k++)
+				Param0.append(RecvParamFrame[k]);
+			ui.lineEdit->setText(Param0);
+		}
+		else
+			;
+	}
+
+}
+void VortexClientV11::Tx2ParamDisplay(QString RecvParamFrame)
+{}
+void VortexClientV11::Tx3ParamDisplay(QString RecvParamFrame)
+{}
+void VortexClientV11::Tx4ParamDisplay(QString RecvParamFrame)
+{}
+void VortexClientV11::Tx2ReceiveData()
+{
+	if (RcvTcpSocketList[Tx2Num].bytesAvailable() < 10)
+		return;
+	//int x = RcvTcpSocketList[Tx1Num].bytesAvailable();
+	ReadBuff[Tx2Num] = RcvTcpSocketList[Tx2Num].readAll();
+	ui.Tx2TextBrowser->append(ReadBuff[Tx2Num]);
+	ReadBuff[Tx2Num].clear();
+}
+void VortexClientV11::Tx3ReceiveData()
+{
+	if (RcvTcpSocketList[Tx3Num].bytesAvailable() < 10)
+		return;
+	//int x = RcvTcpSocketList[Tx1Num].bytesAvailable();
+	ReadBuff[Tx3Num] = RcvTcpSocketList[Tx3Num].readAll();
+	ui.Tx3TextBrowser->append(ReadBuff[Tx3Num]);
+	ReadBuff[Tx3Num].clear();
+}
+void VortexClientV11::Tx4ReceiveData()
+{
+	if (RcvTcpSocketList[Tx4Num].bytesAvailable() < 10)
+		return;
+	int x = RcvTcpSocketList[Tx4Num].bytesAvailable();
+	ReadBuff[Tx4Num] = RcvTcpSocketList[Tx4Num].readAll();
+	ui.Tx4TextBrowser->append(ReadBuff[Tx4Num]);
+	ReadBuff[Tx4Num].clear();
+}
+
+//clear screen
+void VortexClientV11::Tx1ClearScrean_Clicked()
+{
+	ui.Tx1TextBrowser->setText("");
+}
+void VortexClientV11::Tx2ClearScrean_Clicked()
+{
+	ui.Tx2TextBrowser->setText("");
+}
+void VortexClientV11::Tx3ClearScrean_Clicked()
+{
+	ui.Tx3TextBrowser->setText("");
+}
+void VortexClientV11::Tx4ClearScrean_Clicked()
+{
+	ui.Tx4TextBrowser->setText("");
+}
+
+//addr format check
 int VortexClientV11::InputAddrFormatCheck(QString Addr, QString Port)
 {
 	//AddrFormat Check
@@ -615,4 +719,94 @@ int VortexClientV11::InputAddrFormatCheck(QString Addr, QString Port)
 		return 2;                                          //port in wrong format
 	else if ((!isAddrFormatMatch) && (!isPortFormatMatch))  //formatcheck  not passed
 		return 3;
+}
+// param parse
+void VortexClientV11::ParamParse(QString Frame)
+{
+	using std::vector;
+	vector<QString> Param;
+	int ParamLength = 0;
+	int ParamStart = 0;
+	for (int i = 0; i < PARAMENUM; i++)
+	{
+		ParamStart += ParamLengthList[i];
+		ParamLength+= ParamLengthList[i+1];
+		if (ParamLength > Frame.size())
+			return;
+		for (int k = ParamStart; k < ParamLength; k++)
+			Param[i].push_back(Frame[k]);
+		Tx1ParamList[i]->setText(Param[i]);
+	}
+	/*ParamLength += PARAME0LENGTH;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME0LENGTH;
+	ParamLength += PARAME1LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME1LENGTH;
+	ParamLength += PARAME2LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME2LENGTH;
+	ParamLength += PARAME3LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME3LENGTH;
+	ParamLength += PARAME4LENGTH;
+	index++;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME4LENGTH;
+	ParamLength += PARAME5LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME5LENGTH;
+	ParamLength += PARAME6LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME6LENGTH;
+	ParamLength += PARAME7LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME7LENGTH;
+	ParamLength += PARAME8LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME8LENGTH;
+	ParamLength += PARAME9LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);
+	ParamStart += PARAME9LENGTH;
+	ParamLength += PARAME10LENGTH;
+	index++;
+	if (ParamLength > Frame.size())
+		return;
+	for (int k = ParamStart; k < ParamLength; k++)
+		Param[index].push_back(Frame[k]);*/
+
 }

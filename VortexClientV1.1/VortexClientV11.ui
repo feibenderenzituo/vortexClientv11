@@ -19,13 +19,22 @@
      <rect>
       <x>9</x>
       <y>9</y>
-      <width>820</width>
-      <height>590</height>
+      <width>826</width>
+      <height>594</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>隶书</family>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>数据传输</string>
      </attribute>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="0">
@@ -45,7 +54,7 @@
         <property name="font">
          <font>
           <family>隶书</family>
-          <pointsize>13</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="title">
@@ -120,7 +129,7 @@
             </font>
            </property>
            <property name="text">
-            <string>65536</string>
+            <string>8080</string>
            </property>
           </widget>
          </item>
@@ -190,7 +199,7 @@
         <property name="font">
          <font>
           <family>隶书</family>
-          <pointsize>13</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="title">
@@ -265,7 +274,7 @@
             </font>
            </property>
            <property name="text">
-            <string>65536</string>
+            <string>8080</string>
            </property>
           </widget>
          </item>
@@ -335,7 +344,7 @@
         <property name="font">
          <font>
           <family>隶书</family>
-          <pointsize>13</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="title">
@@ -410,7 +419,7 @@
             </font>
            </property>
            <property name="text">
-            <string>65536</string>
+            <string>8080</string>
            </property>
           </widget>
          </item>
@@ -480,7 +489,7 @@
         <property name="font">
          <font>
           <family>隶书</family>
-          <pointsize>13</pointsize>
+          <pointsize>12</pointsize>
          </font>
         </property>
         <property name="title">
@@ -555,7 +564,7 @@
             </font>
            </property>
            <property name="text">
-            <string>65536</string>
+            <string>8080</string>
            </property>
           </widget>
          </item>
@@ -612,8 +621,1301 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>参数设置</string>
      </attribute>
+     <layout class="QGridLayout" name="gridLayout_10">
+      <item row="0" column="0">
+       <widget class="QGroupBox" name="Tx1GroupBox_2">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 1</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_6">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_3">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="lineEdit_3"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_2"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="lineEdit_4"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_5"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="lineEdit_7"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_6"/>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="lineEdit_8"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_9">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_9"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_11">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="lineEdit_11"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_10">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_10"/>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_12">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="lineEdit_12"/>
+         </item>
+         <item row="6" column="0" colspan="4">
+          <widget class="QPushButton" name="pushButton">
+           <property name="text">
+            <string>参数下发</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="1" colspan="2">
+       <widget class="QGroupBox" name="Tx1GroupBox_3">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 2</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_7">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_13">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_13"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_14">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="lineEdit_14"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_15">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_15"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_16">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="lineEdit_16"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_17">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_17"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_18">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="lineEdit_18"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_19">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_19"/>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_20">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="lineEdit_20"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_21">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_21"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_22">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="lineEdit_22"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_23">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_23"/>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_24">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="lineEdit_24"/>
+         </item>
+         <item row="6" column="0" colspan="4">
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="text">
+            <string>参数下发</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QGroupBox" name="Tx1GroupBox_4">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 3</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_8">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_25">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_25"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_26">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="lineEdit_26"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_27">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_27"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_28">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="lineEdit_28"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_29">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_29"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_30">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="lineEdit_30"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_31">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_31"/>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_32">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="lineEdit_32"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_33">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_33"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_34">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="lineEdit_34"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_35">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_35"/>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_36">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="lineEdit_36"/>
+         </item>
+         <item row="6" column="0" colspan="4">
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="text">
+            <string>参数下发</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QGroupBox" name="Tx1GroupBox_5">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 4</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_9">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_37">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_37"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_38">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="lineEdit_38"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_39">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_39"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_40">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="lineEdit_40"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_41">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_41"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_42">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="lineEdit_42"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_43">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_43"/>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_44">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="lineEdit_44"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_45">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_45"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_46">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="lineEdit_46"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_47">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_47"/>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_48">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="lineEdit_48"/>
+         </item>
+         <item row="6" column="0" colspan="4">
+          <widget class="QPushButton" name="pushButton_4">
+           <property name="text">
+            <string>参数下发</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>状态监视</string>
+     </attribute>
+     <layout class="QGridLayout" name="gridLayout_15">
+      <item row="0" column="0">
+       <widget class="QGroupBox" name="Tx1GroupBox_6">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 1</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_11">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_49">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="Tx1Param0"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_50">
+           <property name="text">
+            <string>参数 8</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="Tx1Param7"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_51">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="Tx1Param1"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_52">
+           <property name="text">
+            <string>参数 9</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="Tx1Param8"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_53">
+           <property name="text">
+            <string>参数 3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="Tx1Param2"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_54">
+           <property name="text">
+            <string>参数 10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="Tx1Param9"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_55">
+           <property name="text">
+            <string>参数 4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="Tx1Param3"/>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_56">
+           <property name="text">
+            <string>参数 11</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="Tx1Param10"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_57">
+           <property name="text">
+            <string>参数 5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="Tx1Param4"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_58">
+           <property name="text">
+            <string>参数 12</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="Tx1Param11"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_59">
+           <property name="text">
+            <string>参数 6</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="Tx1Param5"/>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_60">
+           <property name="text">
+            <string>参数 13</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="Tx1Param12"/>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_61">
+           <property name="text">
+            <string>参数 7</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="Tx1Param6"/>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLabel" name="label_62">
+           <property name="text">
+            <string>参数 14</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="QLineEdit" name="Tx1Param13"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QGroupBox" name="Tx1GroupBox_7">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 2</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_12">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_63">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_63"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_64">
+           <property name="text">
+            <string>参数 8</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="lineEdit_64"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_65">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_65"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_66">
+           <property name="text">
+            <string>参数 9</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="lineEdit_66"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_67">
+           <property name="text">
+            <string>参数 3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_67"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_68">
+           <property name="text">
+            <string>参数 10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="lineEdit_68"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_69">
+           <property name="text">
+            <string>参数 4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_69"/>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_70">
+           <property name="text">
+            <string>参数 11</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="lineEdit_70"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_71">
+           <property name="text">
+            <string>参数 5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_71"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_72">
+           <property name="text">
+            <string>参数 12</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="lineEdit_72"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_73">
+           <property name="text">
+            <string>参数 6</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_73"/>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_74">
+           <property name="text">
+            <string>参数 13</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="lineEdit_74"/>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_75">
+           <property name="text">
+            <string>参数 7</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="lineEdit_75"/>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLabel" name="label_76">
+           <property name="text">
+            <string>参数 14</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="QLineEdit" name="lineEdit_76"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QGroupBox" name="Tx1GroupBox_8">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 3</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_13">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_77">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_77"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_78">
+           <property name="text">
+            <string>参数 8</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="lineEdit_78"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_79">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_79"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_80">
+           <property name="text">
+            <string>参数 9</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="lineEdit_80"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_81">
+           <property name="text">
+            <string>参数 3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_81"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_82">
+           <property name="text">
+            <string>参数 10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="lineEdit_82"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_83">
+           <property name="text">
+            <string>参数 4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_83"/>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_84">
+           <property name="text">
+            <string>参数 11</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="lineEdit_84"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_85">
+           <property name="text">
+            <string>参数 5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_85"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_86">
+           <property name="text">
+            <string>参数 12</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="lineEdit_86"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_87">
+           <property name="text">
+            <string>参数 6</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_87"/>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_88">
+           <property name="text">
+            <string>参数 13</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="lineEdit_88"/>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_89">
+           <property name="text">
+            <string>参数 7</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="lineEdit_89"/>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLabel" name="label_90">
+           <property name="text">
+            <string>参数 14</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="QLineEdit" name="lineEdit_90"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QGroupBox" name="Tx1GroupBox_9">
+        <property name="minimumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>395</width>
+          <height>270</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>隶书</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="title">
+         <string>发射机 4</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_14">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_91">
+           <property name="text">
+            <string>参数 1</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_91"/>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="label_92">
+           <property name="text">
+            <string>参数 8</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLineEdit" name="lineEdit_92"/>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_93">
+           <property name="text">
+            <string>参数 2</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_93"/>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="label_94">
+           <property name="text">
+            <string>参数 9</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLineEdit" name="lineEdit_94"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_95">
+           <property name="text">
+            <string>参数 3</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QLineEdit" name="lineEdit_95"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="label_96">
+           <property name="text">
+            <string>参数 10</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLineEdit" name="lineEdit_96"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="label_97">
+           <property name="text">
+            <string>参数 4</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="lineEdit_97"/>
+         </item>
+         <item row="3" column="2">
+          <widget class="QLabel" name="label_98">
+           <property name="text">
+            <string>参数 11</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="3">
+          <widget class="QLineEdit" name="lineEdit_98"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="label_99">
+           <property name="text">
+            <string>参数 5</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QLineEdit" name="lineEdit_99"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="label_100">
+           <property name="text">
+            <string>参数 12</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="3">
+          <widget class="QLineEdit" name="lineEdit_100"/>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="label_101">
+           <property name="text">
+            <string>参数 6</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="QLineEdit" name="lineEdit_101"/>
+         </item>
+         <item row="5" column="2">
+          <widget class="QLabel" name="label_102">
+           <property name="text">
+            <string>参数 13</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="3">
+          <widget class="QLineEdit" name="lineEdit_102"/>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="label_103">
+           <property name="text">
+            <string>参数 7</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="QLineEdit" name="lineEdit_103"/>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLabel" name="label_104">
+           <property name="text">
+            <string>参数 14</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="3">
+          <widget class="QLineEdit" name="lineEdit_104"/>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>
