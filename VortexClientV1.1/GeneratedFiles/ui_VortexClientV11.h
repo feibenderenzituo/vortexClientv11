@@ -229,91 +229,91 @@ public:
     QGroupBox *Tx1GroupBox_7;
     QGridLayout *gridLayout_12;
     QLabel *label_63;
-    QLineEdit *lineEdit_63;
+    QLineEdit *Tx2Param0;
     QLabel *label_64;
-    QLineEdit *lineEdit_64;
+    QLineEdit *Tx2Param7;
     QLabel *label_65;
-    QLineEdit *lineEdit_65;
+    QLineEdit *Tx2Param1;
     QLabel *label_66;
-    QLineEdit *lineEdit_66;
+    QLineEdit *Tx2Param8;
     QLabel *label_67;
-    QLineEdit *lineEdit_67;
+    QLineEdit *Tx2Param2;
     QLabel *label_68;
-    QLineEdit *lineEdit_68;
+    QLineEdit *Tx2Param9;
     QLabel *label_69;
-    QLineEdit *lineEdit_69;
+    QLineEdit *Tx2Param3;
     QLabel *label_70;
-    QLineEdit *lineEdit_70;
+    QLineEdit *Tx2Param10;
     QLabel *label_71;
-    QLineEdit *lineEdit_71;
+    QLineEdit *Tx2Param4;
     QLabel *label_72;
-    QLineEdit *lineEdit_72;
+    QLineEdit *Tx2Param11;
     QLabel *label_73;
-    QLineEdit *lineEdit_73;
+    QLineEdit *Tx2Param5;
     QLabel *label_74;
-    QLineEdit *lineEdit_74;
+    QLineEdit *Tx2Param12;
     QLabel *label_75;
-    QLineEdit *lineEdit_75;
+    QLineEdit *Tx2Param6;
     QLabel *label_76;
-    QLineEdit *lineEdit_76;
+    QLineEdit *Tx2Param13;
     QGroupBox *Tx1GroupBox_8;
     QGridLayout *gridLayout_13;
     QLabel *label_77;
-    QLineEdit *lineEdit_77;
+    QLineEdit *Tx3Param0;
     QLabel *label_78;
-    QLineEdit *lineEdit_78;
+    QLineEdit *Tx3Param7;
     QLabel *label_79;
-    QLineEdit *lineEdit_79;
+    QLineEdit *Tx3Param1;
     QLabel *label_80;
-    QLineEdit *lineEdit_80;
+    QLineEdit *Tx3Param8;
     QLabel *label_81;
-    QLineEdit *lineEdit_81;
+    QLineEdit *Tx3Param2;
     QLabel *label_82;
-    QLineEdit *lineEdit_82;
+    QLineEdit *Tx3Param9;
     QLabel *label_83;
-    QLineEdit *lineEdit_83;
+    QLineEdit *Tx3Param3;
     QLabel *label_84;
-    QLineEdit *lineEdit_84;
+    QLineEdit *Tx3Param10;
     QLabel *label_85;
-    QLineEdit *lineEdit_85;
+    QLineEdit *Tx3Param4;
     QLabel *label_86;
-    QLineEdit *lineEdit_86;
+    QLineEdit *Tx3Param11;
     QLabel *label_87;
-    QLineEdit *lineEdit_87;
+    QLineEdit *Tx3Param5;
     QLabel *label_88;
-    QLineEdit *lineEdit_88;
+    QLineEdit *Tx3Param12;
     QLabel *label_89;
-    QLineEdit *lineEdit_89;
+    QLineEdit *Tx3Param6;
     QLabel *label_90;
-    QLineEdit *lineEdit_90;
+    QLineEdit *Tx3Param13;
     QGroupBox *Tx1GroupBox_9;
     QGridLayout *gridLayout_14;
     QLabel *label_91;
-    QLineEdit *lineEdit_91;
+    QLineEdit *Tx4Param0;
     QLabel *label_92;
-    QLineEdit *lineEdit_92;
+    QLineEdit *Tx4Param7;
     QLabel *label_93;
-    QLineEdit *lineEdit_93;
+    QLineEdit *Tx4Param1;
     QLabel *label_94;
-    QLineEdit *lineEdit_94;
+    QLineEdit *Tx4Param8;
     QLabel *label_95;
-    QLineEdit *lineEdit_95;
+    QLineEdit *Tx4Param2;
     QLabel *label_96;
-    QLineEdit *lineEdit_96;
+    QLineEdit *Tx4Param9;
     QLabel *label_97;
-    QLineEdit *lineEdit_97;
+    QLineEdit *Tx4Param3;
     QLabel *label_98;
-    QLineEdit *lineEdit_98;
+    QLineEdit *Tx4Param10;
     QLabel *label_99;
-    QLineEdit *lineEdit_99;
+    QLineEdit *Tx4Param4;
     QLabel *label_100;
-    QLineEdit *lineEdit_100;
+    QLineEdit *Tx4Param11;
     QLabel *label_101;
-    QLineEdit *lineEdit_101;
+    QLineEdit *Tx4Param5;
     QLabel *label_102;
-    QLineEdit *lineEdit_102;
+    QLineEdit *Tx4Param12;
     QLabel *label_103;
-    QLineEdit *lineEdit_103;
+    QLineEdit *Tx4Param6;
     QLabel *label_104;
     QLineEdit *lineEdit_104;
     QMenuBar *menuBar;
@@ -324,7 +324,7 @@ public:
     {
         if (VortexClientV11Class->objectName().isEmpty())
             VortexClientV11Class->setObjectName(QStringLiteral("VortexClientV11Class"));
-        VortexClientV11Class->resize(848, 666);
+        VortexClientV11Class->resize(860, 666);
         centralWidget = new QWidget(VortexClientV11Class);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         tabWidget = new QTabWidget(centralWidget);
@@ -1360,140 +1360,140 @@ public:
 
         gridLayout_12->addWidget(label_63, 0, 0, 1, 1);
 
-        lineEdit_63 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_63->setObjectName(QStringLiteral("lineEdit_63"));
+        Tx2Param0 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param0->setObjectName(QStringLiteral("Tx2Param0"));
 
-        gridLayout_12->addWidget(lineEdit_63, 0, 1, 1, 1);
+        gridLayout_12->addWidget(Tx2Param0, 0, 1, 1, 1);
 
         label_64 = new QLabel(Tx1GroupBox_7);
         label_64->setObjectName(QStringLiteral("label_64"));
 
         gridLayout_12->addWidget(label_64, 0, 2, 1, 1);
 
-        lineEdit_64 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_64->setObjectName(QStringLiteral("lineEdit_64"));
+        Tx2Param7 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param7->setObjectName(QStringLiteral("Tx2Param7"));
 
-        gridLayout_12->addWidget(lineEdit_64, 0, 3, 1, 1);
+        gridLayout_12->addWidget(Tx2Param7, 0, 3, 1, 1);
 
         label_65 = new QLabel(Tx1GroupBox_7);
         label_65->setObjectName(QStringLiteral("label_65"));
 
         gridLayout_12->addWidget(label_65, 1, 0, 1, 1);
 
-        lineEdit_65 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_65->setObjectName(QStringLiteral("lineEdit_65"));
+        Tx2Param1 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param1->setObjectName(QStringLiteral("Tx2Param1"));
 
-        gridLayout_12->addWidget(lineEdit_65, 1, 1, 1, 1);
+        gridLayout_12->addWidget(Tx2Param1, 1, 1, 1, 1);
 
         label_66 = new QLabel(Tx1GroupBox_7);
         label_66->setObjectName(QStringLiteral("label_66"));
 
         gridLayout_12->addWidget(label_66, 1, 2, 1, 1);
 
-        lineEdit_66 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_66->setObjectName(QStringLiteral("lineEdit_66"));
+        Tx2Param8 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param8->setObjectName(QStringLiteral("Tx2Param8"));
 
-        gridLayout_12->addWidget(lineEdit_66, 1, 3, 1, 1);
+        gridLayout_12->addWidget(Tx2Param8, 1, 3, 1, 1);
 
         label_67 = new QLabel(Tx1GroupBox_7);
         label_67->setObjectName(QStringLiteral("label_67"));
 
         gridLayout_12->addWidget(label_67, 2, 0, 1, 1);
 
-        lineEdit_67 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_67->setObjectName(QStringLiteral("lineEdit_67"));
+        Tx2Param2 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param2->setObjectName(QStringLiteral("Tx2Param2"));
 
-        gridLayout_12->addWidget(lineEdit_67, 2, 1, 1, 1);
+        gridLayout_12->addWidget(Tx2Param2, 2, 1, 1, 1);
 
         label_68 = new QLabel(Tx1GroupBox_7);
         label_68->setObjectName(QStringLiteral("label_68"));
 
         gridLayout_12->addWidget(label_68, 2, 2, 1, 1);
 
-        lineEdit_68 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_68->setObjectName(QStringLiteral("lineEdit_68"));
+        Tx2Param9 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param9->setObjectName(QStringLiteral("Tx2Param9"));
 
-        gridLayout_12->addWidget(lineEdit_68, 2, 3, 1, 1);
+        gridLayout_12->addWidget(Tx2Param9, 2, 3, 1, 1);
 
         label_69 = new QLabel(Tx1GroupBox_7);
         label_69->setObjectName(QStringLiteral("label_69"));
 
         gridLayout_12->addWidget(label_69, 3, 0, 1, 1);
 
-        lineEdit_69 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_69->setObjectName(QStringLiteral("lineEdit_69"));
+        Tx2Param3 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param3->setObjectName(QStringLiteral("Tx2Param3"));
 
-        gridLayout_12->addWidget(lineEdit_69, 3, 1, 1, 1);
+        gridLayout_12->addWidget(Tx2Param3, 3, 1, 1, 1);
 
         label_70 = new QLabel(Tx1GroupBox_7);
         label_70->setObjectName(QStringLiteral("label_70"));
 
         gridLayout_12->addWidget(label_70, 3, 2, 1, 1);
 
-        lineEdit_70 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_70->setObjectName(QStringLiteral("lineEdit_70"));
+        Tx2Param10 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param10->setObjectName(QStringLiteral("Tx2Param10"));
 
-        gridLayout_12->addWidget(lineEdit_70, 3, 3, 1, 1);
+        gridLayout_12->addWidget(Tx2Param10, 3, 3, 1, 1);
 
         label_71 = new QLabel(Tx1GroupBox_7);
         label_71->setObjectName(QStringLiteral("label_71"));
 
         gridLayout_12->addWidget(label_71, 4, 0, 1, 1);
 
-        lineEdit_71 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_71->setObjectName(QStringLiteral("lineEdit_71"));
+        Tx2Param4 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param4->setObjectName(QStringLiteral("Tx2Param4"));
 
-        gridLayout_12->addWidget(lineEdit_71, 4, 1, 1, 1);
+        gridLayout_12->addWidget(Tx2Param4, 4, 1, 1, 1);
 
         label_72 = new QLabel(Tx1GroupBox_7);
         label_72->setObjectName(QStringLiteral("label_72"));
 
         gridLayout_12->addWidget(label_72, 4, 2, 1, 1);
 
-        lineEdit_72 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_72->setObjectName(QStringLiteral("lineEdit_72"));
+        Tx2Param11 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param11->setObjectName(QStringLiteral("Tx2Param11"));
 
-        gridLayout_12->addWidget(lineEdit_72, 4, 3, 1, 1);
+        gridLayout_12->addWidget(Tx2Param11, 4, 3, 1, 1);
 
         label_73 = new QLabel(Tx1GroupBox_7);
         label_73->setObjectName(QStringLiteral("label_73"));
 
         gridLayout_12->addWidget(label_73, 5, 0, 1, 1);
 
-        lineEdit_73 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_73->setObjectName(QStringLiteral("lineEdit_73"));
+        Tx2Param5 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param5->setObjectName(QStringLiteral("Tx2Param5"));
 
-        gridLayout_12->addWidget(lineEdit_73, 5, 1, 1, 1);
+        gridLayout_12->addWidget(Tx2Param5, 5, 1, 1, 1);
 
         label_74 = new QLabel(Tx1GroupBox_7);
         label_74->setObjectName(QStringLiteral("label_74"));
 
         gridLayout_12->addWidget(label_74, 5, 2, 1, 1);
 
-        lineEdit_74 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_74->setObjectName(QStringLiteral("lineEdit_74"));
+        Tx2Param12 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param12->setObjectName(QStringLiteral("Tx2Param12"));
 
-        gridLayout_12->addWidget(lineEdit_74, 5, 3, 1, 1);
+        gridLayout_12->addWidget(Tx2Param12, 5, 3, 1, 1);
 
         label_75 = new QLabel(Tx1GroupBox_7);
         label_75->setObjectName(QStringLiteral("label_75"));
 
         gridLayout_12->addWidget(label_75, 6, 0, 1, 1);
 
-        lineEdit_75 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_75->setObjectName(QStringLiteral("lineEdit_75"));
+        Tx2Param6 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param6->setObjectName(QStringLiteral("Tx2Param6"));
 
-        gridLayout_12->addWidget(lineEdit_75, 6, 1, 1, 1);
+        gridLayout_12->addWidget(Tx2Param6, 6, 1, 1, 1);
 
         label_76 = new QLabel(Tx1GroupBox_7);
         label_76->setObjectName(QStringLiteral("label_76"));
 
         gridLayout_12->addWidget(label_76, 6, 2, 1, 1);
 
-        lineEdit_76 = new QLineEdit(Tx1GroupBox_7);
-        lineEdit_76->setObjectName(QStringLiteral("lineEdit_76"));
+        Tx2Param13 = new QLineEdit(Tx1GroupBox_7);
+        Tx2Param13->setObjectName(QStringLiteral("Tx2Param13"));
 
-        gridLayout_12->addWidget(lineEdit_76, 6, 3, 1, 1);
+        gridLayout_12->addWidget(Tx2Param13, 6, 3, 1, 1);
 
 
         gridLayout_15->addWidget(Tx1GroupBox_7, 0, 1, 1, 1);
@@ -1512,140 +1512,140 @@ public:
 
         gridLayout_13->addWidget(label_77, 0, 0, 1, 1);
 
-        lineEdit_77 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_77->setObjectName(QStringLiteral("lineEdit_77"));
+        Tx3Param0 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param0->setObjectName(QStringLiteral("Tx3Param0"));
 
-        gridLayout_13->addWidget(lineEdit_77, 0, 1, 1, 1);
+        gridLayout_13->addWidget(Tx3Param0, 0, 1, 1, 1);
 
         label_78 = new QLabel(Tx1GroupBox_8);
         label_78->setObjectName(QStringLiteral("label_78"));
 
         gridLayout_13->addWidget(label_78, 0, 2, 1, 1);
 
-        lineEdit_78 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_78->setObjectName(QStringLiteral("lineEdit_78"));
+        Tx3Param7 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param7->setObjectName(QStringLiteral("Tx3Param7"));
 
-        gridLayout_13->addWidget(lineEdit_78, 0, 3, 1, 1);
+        gridLayout_13->addWidget(Tx3Param7, 0, 3, 1, 1);
 
         label_79 = new QLabel(Tx1GroupBox_8);
         label_79->setObjectName(QStringLiteral("label_79"));
 
         gridLayout_13->addWidget(label_79, 1, 0, 1, 1);
 
-        lineEdit_79 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_79->setObjectName(QStringLiteral("lineEdit_79"));
+        Tx3Param1 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param1->setObjectName(QStringLiteral("Tx3Param1"));
 
-        gridLayout_13->addWidget(lineEdit_79, 1, 1, 1, 1);
+        gridLayout_13->addWidget(Tx3Param1, 1, 1, 1, 1);
 
         label_80 = new QLabel(Tx1GroupBox_8);
         label_80->setObjectName(QStringLiteral("label_80"));
 
         gridLayout_13->addWidget(label_80, 1, 2, 1, 1);
 
-        lineEdit_80 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_80->setObjectName(QStringLiteral("lineEdit_80"));
+        Tx3Param8 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param8->setObjectName(QStringLiteral("Tx3Param8"));
 
-        gridLayout_13->addWidget(lineEdit_80, 1, 3, 1, 1);
+        gridLayout_13->addWidget(Tx3Param8, 1, 3, 1, 1);
 
         label_81 = new QLabel(Tx1GroupBox_8);
         label_81->setObjectName(QStringLiteral("label_81"));
 
         gridLayout_13->addWidget(label_81, 2, 0, 1, 1);
 
-        lineEdit_81 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_81->setObjectName(QStringLiteral("lineEdit_81"));
+        Tx3Param2 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param2->setObjectName(QStringLiteral("Tx3Param2"));
 
-        gridLayout_13->addWidget(lineEdit_81, 2, 1, 1, 1);
+        gridLayout_13->addWidget(Tx3Param2, 2, 1, 1, 1);
 
         label_82 = new QLabel(Tx1GroupBox_8);
         label_82->setObjectName(QStringLiteral("label_82"));
 
         gridLayout_13->addWidget(label_82, 2, 2, 1, 1);
 
-        lineEdit_82 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_82->setObjectName(QStringLiteral("lineEdit_82"));
+        Tx3Param9 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param9->setObjectName(QStringLiteral("Tx3Param9"));
 
-        gridLayout_13->addWidget(lineEdit_82, 2, 3, 1, 1);
+        gridLayout_13->addWidget(Tx3Param9, 2, 3, 1, 1);
 
         label_83 = new QLabel(Tx1GroupBox_8);
         label_83->setObjectName(QStringLiteral("label_83"));
 
         gridLayout_13->addWidget(label_83, 3, 0, 1, 1);
 
-        lineEdit_83 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_83->setObjectName(QStringLiteral("lineEdit_83"));
+        Tx3Param3 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param3->setObjectName(QStringLiteral("Tx3Param3"));
 
-        gridLayout_13->addWidget(lineEdit_83, 3, 1, 1, 1);
+        gridLayout_13->addWidget(Tx3Param3, 3, 1, 1, 1);
 
         label_84 = new QLabel(Tx1GroupBox_8);
         label_84->setObjectName(QStringLiteral("label_84"));
 
         gridLayout_13->addWidget(label_84, 3, 2, 1, 1);
 
-        lineEdit_84 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_84->setObjectName(QStringLiteral("lineEdit_84"));
+        Tx3Param10 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param10->setObjectName(QStringLiteral("Tx3Param10"));
 
-        gridLayout_13->addWidget(lineEdit_84, 3, 3, 1, 1);
+        gridLayout_13->addWidget(Tx3Param10, 3, 3, 1, 1);
 
         label_85 = new QLabel(Tx1GroupBox_8);
         label_85->setObjectName(QStringLiteral("label_85"));
 
         gridLayout_13->addWidget(label_85, 4, 0, 1, 1);
 
-        lineEdit_85 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_85->setObjectName(QStringLiteral("lineEdit_85"));
+        Tx3Param4 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param4->setObjectName(QStringLiteral("Tx3Param4"));
 
-        gridLayout_13->addWidget(lineEdit_85, 4, 1, 1, 1);
+        gridLayout_13->addWidget(Tx3Param4, 4, 1, 1, 1);
 
         label_86 = new QLabel(Tx1GroupBox_8);
         label_86->setObjectName(QStringLiteral("label_86"));
 
         gridLayout_13->addWidget(label_86, 4, 2, 1, 1);
 
-        lineEdit_86 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_86->setObjectName(QStringLiteral("lineEdit_86"));
+        Tx3Param11 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param11->setObjectName(QStringLiteral("Tx3Param11"));
 
-        gridLayout_13->addWidget(lineEdit_86, 4, 3, 1, 1);
+        gridLayout_13->addWidget(Tx3Param11, 4, 3, 1, 1);
 
         label_87 = new QLabel(Tx1GroupBox_8);
         label_87->setObjectName(QStringLiteral("label_87"));
 
         gridLayout_13->addWidget(label_87, 5, 0, 1, 1);
 
-        lineEdit_87 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_87->setObjectName(QStringLiteral("lineEdit_87"));
+        Tx3Param5 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param5->setObjectName(QStringLiteral("Tx3Param5"));
 
-        gridLayout_13->addWidget(lineEdit_87, 5, 1, 1, 1);
+        gridLayout_13->addWidget(Tx3Param5, 5, 1, 1, 1);
 
         label_88 = new QLabel(Tx1GroupBox_8);
         label_88->setObjectName(QStringLiteral("label_88"));
 
         gridLayout_13->addWidget(label_88, 5, 2, 1, 1);
 
-        lineEdit_88 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_88->setObjectName(QStringLiteral("lineEdit_88"));
+        Tx3Param12 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param12->setObjectName(QStringLiteral("Tx3Param12"));
 
-        gridLayout_13->addWidget(lineEdit_88, 5, 3, 1, 1);
+        gridLayout_13->addWidget(Tx3Param12, 5, 3, 1, 1);
 
         label_89 = new QLabel(Tx1GroupBox_8);
         label_89->setObjectName(QStringLiteral("label_89"));
 
         gridLayout_13->addWidget(label_89, 6, 0, 1, 1);
 
-        lineEdit_89 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_89->setObjectName(QStringLiteral("lineEdit_89"));
+        Tx3Param6 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param6->setObjectName(QStringLiteral("Tx3Param6"));
 
-        gridLayout_13->addWidget(lineEdit_89, 6, 1, 1, 1);
+        gridLayout_13->addWidget(Tx3Param6, 6, 1, 1, 1);
 
         label_90 = new QLabel(Tx1GroupBox_8);
         label_90->setObjectName(QStringLiteral("label_90"));
 
         gridLayout_13->addWidget(label_90, 6, 2, 1, 1);
 
-        lineEdit_90 = new QLineEdit(Tx1GroupBox_8);
-        lineEdit_90->setObjectName(QStringLiteral("lineEdit_90"));
+        Tx3Param13 = new QLineEdit(Tx1GroupBox_8);
+        Tx3Param13->setObjectName(QStringLiteral("Tx3Param13"));
 
-        gridLayout_13->addWidget(lineEdit_90, 6, 3, 1, 1);
+        gridLayout_13->addWidget(Tx3Param13, 6, 3, 1, 1);
 
 
         gridLayout_15->addWidget(Tx1GroupBox_8, 1, 0, 1, 1);
@@ -1664,130 +1664,130 @@ public:
 
         gridLayout_14->addWidget(label_91, 0, 0, 1, 1);
 
-        lineEdit_91 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_91->setObjectName(QStringLiteral("lineEdit_91"));
+        Tx4Param0 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param0->setObjectName(QStringLiteral("Tx4Param0"));
 
-        gridLayout_14->addWidget(lineEdit_91, 0, 1, 1, 1);
+        gridLayout_14->addWidget(Tx4Param0, 0, 1, 1, 1);
 
         label_92 = new QLabel(Tx1GroupBox_9);
         label_92->setObjectName(QStringLiteral("label_92"));
 
         gridLayout_14->addWidget(label_92, 0, 2, 1, 1);
 
-        lineEdit_92 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_92->setObjectName(QStringLiteral("lineEdit_92"));
+        Tx4Param7 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param7->setObjectName(QStringLiteral("Tx4Param7"));
 
-        gridLayout_14->addWidget(lineEdit_92, 0, 3, 1, 1);
+        gridLayout_14->addWidget(Tx4Param7, 0, 3, 1, 1);
 
         label_93 = new QLabel(Tx1GroupBox_9);
         label_93->setObjectName(QStringLiteral("label_93"));
 
         gridLayout_14->addWidget(label_93, 1, 0, 1, 1);
 
-        lineEdit_93 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_93->setObjectName(QStringLiteral("lineEdit_93"));
+        Tx4Param1 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param1->setObjectName(QStringLiteral("Tx4Param1"));
 
-        gridLayout_14->addWidget(lineEdit_93, 1, 1, 1, 1);
+        gridLayout_14->addWidget(Tx4Param1, 1, 1, 1, 1);
 
         label_94 = new QLabel(Tx1GroupBox_9);
         label_94->setObjectName(QStringLiteral("label_94"));
 
         gridLayout_14->addWidget(label_94, 1, 2, 1, 1);
 
-        lineEdit_94 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_94->setObjectName(QStringLiteral("lineEdit_94"));
+        Tx4Param8 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param8->setObjectName(QStringLiteral("Tx4Param8"));
 
-        gridLayout_14->addWidget(lineEdit_94, 1, 3, 1, 1);
+        gridLayout_14->addWidget(Tx4Param8, 1, 3, 1, 1);
 
         label_95 = new QLabel(Tx1GroupBox_9);
         label_95->setObjectName(QStringLiteral("label_95"));
 
         gridLayout_14->addWidget(label_95, 2, 0, 1, 1);
 
-        lineEdit_95 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_95->setObjectName(QStringLiteral("lineEdit_95"));
+        Tx4Param2 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param2->setObjectName(QStringLiteral("Tx4Param2"));
 
-        gridLayout_14->addWidget(lineEdit_95, 2, 1, 1, 1);
+        gridLayout_14->addWidget(Tx4Param2, 2, 1, 1, 1);
 
         label_96 = new QLabel(Tx1GroupBox_9);
         label_96->setObjectName(QStringLiteral("label_96"));
 
         gridLayout_14->addWidget(label_96, 2, 2, 1, 1);
 
-        lineEdit_96 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_96->setObjectName(QStringLiteral("lineEdit_96"));
+        Tx4Param9 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param9->setObjectName(QStringLiteral("Tx4Param9"));
 
-        gridLayout_14->addWidget(lineEdit_96, 2, 3, 1, 1);
+        gridLayout_14->addWidget(Tx4Param9, 2, 3, 1, 1);
 
         label_97 = new QLabel(Tx1GroupBox_9);
         label_97->setObjectName(QStringLiteral("label_97"));
 
         gridLayout_14->addWidget(label_97, 3, 0, 1, 1);
 
-        lineEdit_97 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_97->setObjectName(QStringLiteral("lineEdit_97"));
+        Tx4Param3 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param3->setObjectName(QStringLiteral("Tx4Param3"));
 
-        gridLayout_14->addWidget(lineEdit_97, 3, 1, 1, 1);
+        gridLayout_14->addWidget(Tx4Param3, 3, 1, 1, 1);
 
         label_98 = new QLabel(Tx1GroupBox_9);
         label_98->setObjectName(QStringLiteral("label_98"));
 
         gridLayout_14->addWidget(label_98, 3, 2, 1, 1);
 
-        lineEdit_98 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_98->setObjectName(QStringLiteral("lineEdit_98"));
+        Tx4Param10 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param10->setObjectName(QStringLiteral("Tx4Param10"));
 
-        gridLayout_14->addWidget(lineEdit_98, 3, 3, 1, 1);
+        gridLayout_14->addWidget(Tx4Param10, 3, 3, 1, 1);
 
         label_99 = new QLabel(Tx1GroupBox_9);
         label_99->setObjectName(QStringLiteral("label_99"));
 
         gridLayout_14->addWidget(label_99, 4, 0, 1, 1);
 
-        lineEdit_99 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_99->setObjectName(QStringLiteral("lineEdit_99"));
+        Tx4Param4 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param4->setObjectName(QStringLiteral("Tx4Param4"));
 
-        gridLayout_14->addWidget(lineEdit_99, 4, 1, 1, 1);
+        gridLayout_14->addWidget(Tx4Param4, 4, 1, 1, 1);
 
         label_100 = new QLabel(Tx1GroupBox_9);
         label_100->setObjectName(QStringLiteral("label_100"));
 
         gridLayout_14->addWidget(label_100, 4, 2, 1, 1);
 
-        lineEdit_100 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_100->setObjectName(QStringLiteral("lineEdit_100"));
+        Tx4Param11 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param11->setObjectName(QStringLiteral("Tx4Param11"));
 
-        gridLayout_14->addWidget(lineEdit_100, 4, 3, 1, 1);
+        gridLayout_14->addWidget(Tx4Param11, 4, 3, 1, 1);
 
         label_101 = new QLabel(Tx1GroupBox_9);
         label_101->setObjectName(QStringLiteral("label_101"));
 
         gridLayout_14->addWidget(label_101, 5, 0, 1, 1);
 
-        lineEdit_101 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_101->setObjectName(QStringLiteral("lineEdit_101"));
+        Tx4Param5 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param5->setObjectName(QStringLiteral("Tx4Param5"));
 
-        gridLayout_14->addWidget(lineEdit_101, 5, 1, 1, 1);
+        gridLayout_14->addWidget(Tx4Param5, 5, 1, 1, 1);
 
         label_102 = new QLabel(Tx1GroupBox_9);
         label_102->setObjectName(QStringLiteral("label_102"));
 
         gridLayout_14->addWidget(label_102, 5, 2, 1, 1);
 
-        lineEdit_102 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_102->setObjectName(QStringLiteral("lineEdit_102"));
+        Tx4Param12 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param12->setObjectName(QStringLiteral("Tx4Param12"));
 
-        gridLayout_14->addWidget(lineEdit_102, 5, 3, 1, 1);
+        gridLayout_14->addWidget(Tx4Param12, 5, 3, 1, 1);
 
         label_103 = new QLabel(Tx1GroupBox_9);
         label_103->setObjectName(QStringLiteral("label_103"));
 
         gridLayout_14->addWidget(label_103, 6, 0, 1, 1);
 
-        lineEdit_103 = new QLineEdit(Tx1GroupBox_9);
-        lineEdit_103->setObjectName(QStringLiteral("lineEdit_103"));
+        Tx4Param6 = new QLineEdit(Tx1GroupBox_9);
+        Tx4Param6->setObjectName(QStringLiteral("Tx4Param6"));
 
-        gridLayout_14->addWidget(lineEdit_103, 6, 1, 1, 1);
+        gridLayout_14->addWidget(Tx4Param6, 6, 1, 1, 1);
 
         label_104 = new QLabel(Tx1GroupBox_9);
         label_104->setObjectName(QStringLiteral("label_104"));
@@ -1806,7 +1806,7 @@ public:
         VortexClientV11Class->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(VortexClientV11Class);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 848, 23));
+        menuBar->setGeometry(QRect(0, 0, 860, 23));
         VortexClientV11Class->setMenuBar(menuBar);
         mainToolBar = new QToolBar(VortexClientV11Class);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));

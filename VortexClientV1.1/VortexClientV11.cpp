@@ -38,7 +38,10 @@ VortexClientV11::VortexClientV11(QWidget *parent)
 	connect(this, SIGNAL(Tx2ParamToDisplay(QString)), this, SLOT(Tx2ParamDisplay(QString)));
 	connect(this, SIGNAL(Tx3ParamToDisplay(QString)), this, SLOT(Tx3ParamDisplay(QString)));
 	connect(this, SIGNAL(Tx4ParamToDisplay(QString)), this, SLOT(Tx4ParamDisplay(QString)));
-
+	connect(this, SIGNAL(Tx1DisplayParam(QString)), this, SLOT(Tx1ParamParse(QString)));
+	connect(this, SIGNAL(Tx2DisplayParam(QString)), this, SLOT(Tx2ParamParse(QString)));
+	connect(this, SIGNAL(Tx3DisplayParam(QString)), this, SLOT(Tx3ParamParse(QString)));
+	connect(this, SIGNAL(Tx4DisplayParam(QString)), this, SLOT(Tx4ParamParse(QString)));
 	//set default
 	ui.Tx1Addr->setText(TX1ADDR);
 	ui.Tx1Port->setText(TX1PORT);
@@ -78,6 +81,42 @@ VortexClientV11::VortexClientV11(QWidget *parent)
 	Tx1ParamList.push_back(ui.Tx1Param8);
 	Tx1ParamList.push_back(ui.Tx1Param9);
 	Tx1ParamList.push_back(ui.Tx1Param10);
+
+	Tx2ParamList.push_back(ui.Tx2Param0);
+	Tx2ParamList.push_back(ui.Tx2Param1);
+	Tx2ParamList.push_back(ui.Tx2Param2);
+	Tx2ParamList.push_back(ui.Tx2Param3);
+	Tx2ParamList.push_back(ui.Tx2Param4);
+	Tx2ParamList.push_back(ui.Tx2Param5);
+	Tx2ParamList.push_back(ui.Tx2Param6);
+	Tx2ParamList.push_back(ui.Tx2Param7);
+	Tx2ParamList.push_back(ui.Tx2Param8);
+	Tx2ParamList.push_back(ui.Tx2Param9);
+	Tx2ParamList.push_back(ui.Tx2Param10);
+
+	Tx3ParamList.push_back(ui.Tx3Param0);
+	Tx3ParamList.push_back(ui.Tx3Param1);
+	Tx3ParamList.push_back(ui.Tx3Param2);
+	Tx3ParamList.push_back(ui.Tx3Param3);
+	Tx3ParamList.push_back(ui.Tx3Param4);
+	Tx3ParamList.push_back(ui.Tx3Param5);
+	Tx3ParamList.push_back(ui.Tx3Param6);
+	Tx3ParamList.push_back(ui.Tx3Param7);
+	Tx3ParamList.push_back(ui.Tx3Param8);
+	Tx3ParamList.push_back(ui.Tx3Param9);
+	Tx3ParamList.push_back(ui.Tx3Param10);
+
+	Tx4ParamList.push_back(ui.Tx4Param0);
+	Tx4ParamList.push_back(ui.Tx4Param1);
+	Tx4ParamList.push_back(ui.Tx4Param2);
+	Tx4ParamList.push_back(ui.Tx4Param3);
+	Tx4ParamList.push_back(ui.Tx4Param4);
+	Tx4ParamList.push_back(ui.Tx4Param5);
+	Tx4ParamList.push_back(ui.Tx4Param6);
+	Tx4ParamList.push_back(ui.Tx4Param7);
+	Tx4ParamList.push_back(ui.Tx4Param8);
+	Tx4ParamList.push_back(ui.Tx4Param9);
+	Tx4ParamList.push_back(ui.Tx4Param10);
 }
 //click_button process procedure
 void VortexClientV11::Tx1Connecton_Clicked()
@@ -365,7 +404,7 @@ void VortexClientV11::Tx1ConnectedProc()
 	while ((TcpSocketList[Tx1Num].state() == QAbstractSocket::ClosingState)|| (RcvTcpSocketList[Tx1Num].state() == QAbstractSocket::ClosingState))   //waiting for transmittion complete
 	{
 		ui.Tx1TextBrowser->append("...");
-		Sleep(500);
+		//Sleep(500);
 	}
 	ui.Tx1TextBrowser->append("断开成功");
 	ui.Tx1connect->setEnabled(true);
@@ -376,10 +415,11 @@ void VortexClientV11::Tx2ConnectedProc()
 	ui.Tx2TextBrowser->append("断开连接中");
 	ui.Tx2connect->setEnabled(false);
 	TcpSocketList[Tx2Num].close();
-	while (TcpSocketList[Tx2Num].state() == QAbstractSocket::ClosingState)   //waiting for transmittion complete
+	RcvTcpSocketList[Tx2Num].close();
+	while ((TcpSocketList[Tx2Num].state() == QAbstractSocket::ClosingState) || (RcvTcpSocketList[Tx2Num].state() == QAbstractSocket::ClosingState))   //waiting for transmittion complete
 	{
 		ui.Tx2TextBrowser->append("...");
-		Sleep(500);
+		//Sleep(500);
 	}
 	ui.Tx2TextBrowser->append("断开成功");
 	ui.Tx2connect->setEnabled(true);
@@ -390,10 +430,11 @@ void VortexClientV11::Tx3ConnectedProc()
 	ui.Tx3TextBrowser->append("断开连接中");
 	ui.Tx3connect->setEnabled(false);
 	TcpSocketList[Tx3Num].close();
-	while (TcpSocketList[Tx3Num].state() == QAbstractSocket::ClosingState)   //waiting for transmittion complete
+	RcvTcpSocketList[Tx3Num].close();
+	while ((TcpSocketList[Tx3Num].state() == QAbstractSocket::ClosingState) || (RcvTcpSocketList[Tx3Num].state() == QAbstractSocket::ClosingState))   //waiting for transmittion complete
 	{
 		ui.Tx3TextBrowser->append("...");
-		Sleep(500);
+		//Sleep(500);
 	}
 	ui.Tx3TextBrowser->append("断开成功");
 	ui.Tx3connect->setEnabled(true);
@@ -404,10 +445,11 @@ void VortexClientV11::Tx4ConnectedProc()
 	ui.Tx4TextBrowser->append("断开连接中");
 	ui.Tx4connect->setEnabled(false);
 	TcpSocketList[Tx4Num].close();
-	while (TcpSocketList[Tx4Num].state() == QAbstractSocket::ClosingState)   //waiting for transmittion complete
+	RcvTcpSocketList[Tx4Num].close();
+	while ((TcpSocketList[Tx4Num].state() == QAbstractSocket::ClosingState) || (RcvTcpSocketList[Tx4Num].state() == QAbstractSocket::ClosingState))   //waiting for transmittion complete
 	{
 		ui.Tx4TextBrowser->append("...");
-		Sleep(500);
+		//Sleep(500);
 	}
 	ui.Tx4TextBrowser->append("断开成功");
 	ui.Tx4connect->setEnabled(true);
@@ -438,7 +480,8 @@ void VortexClientV11::Tx2DisconnectedProc()
 	ui.Tx2TextBrowser->append("连接中");
 	ui.Tx2connect->setEnabled(false);
 	TcpSocketList[Tx2Num].connectToHost(Addr[Tx2Num], Port[Tx2Num].toInt());
-	if (TcpSocketList[Tx2Num].waitForConnected(TCPCONNECTTIMEOUT))
+	RcvTcpSocketList[Tx2Num].connectToHost(Addr[Tx2Num], Port[Tx2Num].toInt());
+	if ((TcpSocketList[Tx2Num].waitForConnected(TCPCONNECTTIMEOUT)) && (RcvTcpSocketList[Tx2Num].waitForConnected(TCPCONNECTTIMEOUT)))
 	{
 		ui.Tx2TextBrowser->append("连接成功");
 		ui.Tx2connect->setEnabled(true);
@@ -456,7 +499,8 @@ void VortexClientV11::Tx3DisconnectedProc()
 	ui.Tx3TextBrowser->append("连接中");
 	ui.Tx3connect->setEnabled(false);
 	TcpSocketList[Tx3Num].connectToHost(Addr[Tx3Num], Port[Tx3Num].toInt());
-	if (TcpSocketList[Tx3Num].waitForConnected(TCPCONNECTTIMEOUT))
+	RcvTcpSocketList[Tx3Num].connectToHost(Addr[Tx3Num], Port[Tx3Num].toInt());
+	if ((TcpSocketList[Tx3Num].waitForConnected(TCPCONNECTTIMEOUT)) && (RcvTcpSocketList[Tx3Num].waitForConnected(TCPCONNECTTIMEOUT)))
 	{
 		ui.Tx3TextBrowser->append("连接成功");
 		ui.Tx3connect->setEnabled(true);
@@ -474,7 +518,8 @@ void VortexClientV11::Tx4DisconnectedProc()
 	ui.Tx4TextBrowser->append("连接中");
 	ui.Tx4connect->setEnabled(false);
 	TcpSocketList[Tx4Num].connectToHost(Addr[Tx4Num], Port[Tx4Num].toInt());
-	if (TcpSocketList[Tx4Num].waitForConnected(TCPCONNECTTIMEOUT))
+	RcvTcpSocketList[Tx4Num].connectToHost(Addr[Tx4Num], Port[Tx4Num].toInt());
+	if ((TcpSocketList[Tx4Num].waitForConnected(TCPCONNECTTIMEOUT)) && (RcvTcpSocketList[Tx4Num].waitForConnected(TCPCONNECTTIMEOUT)))
 	{
 		ui.Tx4TextBrowser->append("连接成功");
 		ui.Tx4connect->setEnabled(true);
@@ -583,7 +628,36 @@ void VortexClientV11::Tx1ReceiveData()
 	ui.Tx1TextBrowser->append(ReadBuff[Tx1Num]);
 	ReadBuff[Tx1Num].clear();
 }
-
+void VortexClientV11::Tx2ReceiveData()
+{
+	if (RcvTcpSocketList[Tx2Num].bytesAvailable() < PARAMETERFRAMELENGTH)
+		return;
+	//int x = RcvTcpSocketList[Tx1Num].bytesAvailable();
+	ReadBuff[Tx2Num] = RcvTcpSocketList[Tx2Num].readAll();
+	emit Tx2ParamToDisplay(ReadBuff[Tx2Num]);
+	ui.Tx2TextBrowser->append(ReadBuff[Tx2Num]);
+	ReadBuff[Tx2Num].clear();
+}
+void VortexClientV11::Tx3ReceiveData()
+{
+	if (RcvTcpSocketList[Tx3Num].bytesAvailable() < PARAMETERFRAMELENGTH)
+		return;
+	//int x = RcvTcpSocketList[Tx1Num].bytesAvailable();
+	ReadBuff[Tx3Num] = RcvTcpSocketList[Tx3Num].readAll();
+	emit Tx3ParamToDisplay(ReadBuff[Tx3Num]);
+	ui.Tx3TextBrowser->append(ReadBuff[Tx3Num]);
+	ReadBuff[Tx3Num].clear();
+}
+void VortexClientV11::Tx4ReceiveData()
+{
+	if (RcvTcpSocketList[Tx4Num].bytesAvailable() < PARAMETERFRAMELENGTH)
+		return;
+	//int x = RcvTcpSocketList[Tx4Num].bytesAvailable();
+	ReadBuff[Tx4Num] = RcvTcpSocketList[Tx4Num].readAll();
+	emit Tx4ParamToDisplay(ReadBuff[Tx4Num]);
+	ui.Tx4TextBrowser->append(ReadBuff[Tx4Num]);
+	ReadBuff[Tx4Num].clear();
+}
 void VortexClientV11::Tx1ParamDisplay(QString RecvParamFrame)
 {
 	QString Head = TX1HEAD;
@@ -592,54 +666,184 @@ void VortexClientV11::Tx1ParamDisplay(QString RecvParamFrame)
 	for (int i = 0; i < RecvFrameLength - HeadLength; i++)
 	{
 		QString HeadToComp;
-		for (int j = i; j < HeadLength; j++)
+		for (int j = i; j < i + HeadLength; j++)
 			HeadToComp.append(RecvParamFrame[j]); 
 		if (HeadToComp == Head)                      //
 		{
-			QString Param0;
-			for (int k = i + HeadLength - 1; k < i + HeadLength - 1+5; k++)
-				Param0.append(RecvParamFrame[k]);
-			ui.lineEdit->setText(Param0);
+			QString FrameTemp;
+			for (int k = i + HeadLength; k < i + HeadLength+ PARAMETERFRAMELENGTH; k++)
+				FrameTemp.append(RecvParamFrame[k]);
+			//Tx1ParamParse(FrameTemp);
+			emit Tx1DisplayParam(FrameTemp);
+			i = i + HeadLength + PARAMETERFRAMELENGTH - 1;
+		}
+		else
+			;
+		//Sleep(300);
+	}
+}
+void VortexClientV11::Tx2ParamDisplay(QString RecvParamFrame)
+{
+	QString Head = TX2HEAD;
+	int HeadLength = Head.size();
+	int RecvFrameLength = RecvParamFrame.size();
+	for (int i = 0; i < RecvFrameLength - HeadLength; i++)
+	{
+		QString HeadToComp;
+		for (int j = i; j < i + HeadLength; j++)
+			HeadToComp.append(RecvParamFrame[j]);
+		if (HeadToComp == Head)                      //
+		{
+			QString FrameTemp;
+			for (int k = i + HeadLength; k < i + HeadLength + PARAMETERFRAMELENGTH; k++)
+				FrameTemp.append(RecvParamFrame[k]);
+			//ParamParse(FrameTemp);
+			emit Tx2DisplayParam(FrameTemp);
+			i = i + HeadLength + PARAMETERFRAMELENGTH - 1;
 		}
 		else
 			;
 	}
-
 }
-void VortexClientV11::Tx2ParamDisplay(QString RecvParamFrame)
-{}
 void VortexClientV11::Tx3ParamDisplay(QString RecvParamFrame)
-{}
+{
+	QString Head = TX3HEAD;
+	int HeadLength = Head.size();
+	int RecvFrameLength = RecvParamFrame.size();
+	for (int i = 0; i < RecvFrameLength - HeadLength; i++)
+	{
+		QString HeadToComp;
+		for (int j = i; j < i + HeadLength; j++)
+			HeadToComp.append(RecvParamFrame[j]);
+		if (HeadToComp == Head)                      //
+		{
+			QString FrameTemp;
+			for (int k = i + HeadLength; k < i + HeadLength + PARAMETERFRAMELENGTH; k++)
+				FrameTemp.append(RecvParamFrame[k]);
+			//ParamParse(FrameTemp);
+			emit Tx3DisplayParam(FrameTemp);
+			i = i + HeadLength + PARAMETERFRAMELENGTH - 1;
+		}
+		else
+			;
+	}
+}
 void VortexClientV11::Tx4ParamDisplay(QString RecvParamFrame)
-{}
-void VortexClientV11::Tx2ReceiveData()
 {
-	if (RcvTcpSocketList[Tx2Num].bytesAvailable() < 10)
-		return;
-	//int x = RcvTcpSocketList[Tx1Num].bytesAvailable();
-	ReadBuff[Tx2Num] = RcvTcpSocketList[Tx2Num].readAll();
-	ui.Tx2TextBrowser->append(ReadBuff[Tx2Num]);
-	ReadBuff[Tx2Num].clear();
+	QString Head = TX4HEAD;
+	int HeadLength = Head.size();
+	int RecvFrameLength = RecvParamFrame.size();
+	for (int i = 0; i < RecvFrameLength - HeadLength; i++)
+	{
+		QString HeadToComp;
+		for (int j = i; j < i + HeadLength; j++)
+			HeadToComp.append(RecvParamFrame[j]);
+		if (HeadToComp == Head)                      //
+		{
+			QString FrameTemp;
+			for (int k = i + HeadLength; k < i + HeadLength + PARAMETERFRAMELENGTH; k++)
+				FrameTemp.append(RecvParamFrame[k]);
+			//ParamParse(FrameTemp);
+			emit Tx4DisplayParam(FrameTemp);
+			i = i + HeadLength + PARAMETERFRAMELENGTH - 1;
+		}
+		else
+			;
+	}
 }
-void VortexClientV11::Tx3ReceiveData()
+// param parse
+void VortexClientV11::Tx1ParamParse(QString Frame)
 {
-	if (RcvTcpSocketList[Tx3Num].bytesAvailable() < 10)
-		return;
-	//int x = RcvTcpSocketList[Tx1Num].bytesAvailable();
-	ReadBuff[Tx3Num] = RcvTcpSocketList[Tx3Num].readAll();
-	ui.Tx3TextBrowser->append(ReadBuff[Tx3Num]);
-	ReadBuff[Tx3Num].clear();
+	//using std::vector;
+	//vector<QString> Param;
+	int ParamLength = 0;
+	int ParamStart = 0;
+	for (int i = 0; i < PARAMENUM; i++)
+	{
+		ParamStart += ParamLengthList[i];
+		ParamLength += ParamLengthList[i + 1];
+		if (ParamLength > Frame.size())
+			return;
+		QString Temp;
+		for (int k = ParamStart; k < ParamLength; k++)
+			Temp += Frame[k];
+		Tx1Param.push_back(Temp);
+		//Tx1ParamList[i]->setText(Param[i]);
+	}
+	//emit Tx1DisplayParam(Param);
+	for (int i = 0; i < PARAMENUM; i++)
+		Tx1ParamList[i]->setText(Tx1Param[i]);
+	Tx1Param.clear();
 }
-void VortexClientV11::Tx4ReceiveData()
+void VortexClientV11::Tx2ParamParse(QString Frame)
 {
-	if (RcvTcpSocketList[Tx4Num].bytesAvailable() < 10)
-		return;
-	int x = RcvTcpSocketList[Tx4Num].bytesAvailable();
-	ReadBuff[Tx4Num] = RcvTcpSocketList[Tx4Num].readAll();
-	ui.Tx4TextBrowser->append(ReadBuff[Tx4Num]);
-	ReadBuff[Tx4Num].clear();
+	//using std::vector;
+	//vector<QString> Param;
+	int ParamLength = 0;
+	int ParamStart = 0;
+	for (int i = 0; i < PARAMENUM; i++)
+	{
+		ParamStart += ParamLengthList[i];
+		ParamLength += ParamLengthList[i + 1];
+		if (ParamLength > Frame.size())
+			return;
+		QString Temp;
+		for (int k = ParamStart; k < ParamLength; k++)
+			Temp += Frame[k];
+		Tx2Param.push_back(Temp);
+		//Tx1ParamList[i]->setText(Param[i]);
+	}
+	//emit Tx1DisplayParam(Param);
+	for (int i = 0; i < PARAMENUM; i++)
+		Tx2ParamList[i]->setText(Tx2Param[i]);
+	Tx2Param.clear();
 }
-
+void VortexClientV11::Tx3ParamParse(QString Frame)
+{
+	//using std::vector;
+	//vector<QString> Param;
+	int ParamLength = 0;
+	int ParamStart = 0;
+	for (int i = 0; i < PARAMENUM; i++)
+	{
+		ParamStart += ParamLengthList[i];
+		ParamLength += ParamLengthList[i + 1];
+		if (ParamLength > Frame.size())
+			return;
+		QString Temp;
+		for (int k = ParamStart; k < ParamLength; k++)
+			Temp += Frame[k];
+		Tx3Param.push_back(Temp);
+		//Tx1ParamList[i]->setText(Param[i]);
+	}
+	//emit Tx1DisplayParam(Param);
+	for (int i = 0; i < PARAMENUM; i++)
+		Tx3ParamList[i]->setText(Tx3Param[i]);
+	Tx3Param.clear();
+}
+void VortexClientV11::Tx4ParamParse(QString Frame)
+{
+	//using std::vector;
+	//vector<QString> Param;
+	int ParamLength = 0;
+	int ParamStart = 0;
+	for (int i = 0; i < PARAMENUM; i++)
+	{
+		ParamStart += ParamLengthList[i];
+		ParamLength += ParamLengthList[i + 1];
+		if (ParamLength > Frame.size())
+			return;
+		QString Temp;
+		for (int k = ParamStart; k < ParamLength; k++)
+			Temp += Frame[k];
+		Tx4Param.push_back(Temp);
+		//Tx1ParamList[i]->setText(Param[i]);
+	}
+	//emit Tx1DisplayParam(Param);
+	for (int i = 0; i < PARAMENUM; i++)
+		Tx4ParamList[i]->setText(Tx4Param[i]);
+	Tx4Param.clear();
+}
 //clear screen
 void VortexClientV11::Tx1ClearScrean_Clicked()
 {
@@ -720,93 +924,4 @@ int VortexClientV11::InputAddrFormatCheck(QString Addr, QString Port)
 	else if ((!isAddrFormatMatch) && (!isPortFormatMatch))  //formatcheck  not passed
 		return 3;
 }
-// param parse
-void VortexClientV11::ParamParse(QString Frame)
-{
-	using std::vector;
-	vector<QString> Param;
-	int ParamLength = 0;
-	int ParamStart = 0;
-	for (int i = 0; i < PARAMENUM; i++)
-	{
-		ParamStart += ParamLengthList[i];
-		ParamLength+= ParamLengthList[i+1];
-		if (ParamLength > Frame.size())
-			return;
-		for (int k = ParamStart; k < ParamLength; k++)
-			Param[i].push_back(Frame[k]);
-		Tx1ParamList[i]->setText(Param[i]);
-	}
-	/*ParamLength += PARAME0LENGTH;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME0LENGTH;
-	ParamLength += PARAME1LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME1LENGTH;
-	ParamLength += PARAME2LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME2LENGTH;
-	ParamLength += PARAME3LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME3LENGTH;
-	ParamLength += PARAME4LENGTH;
-	index++;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME4LENGTH;
-	ParamLength += PARAME5LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME5LENGTH;
-	ParamLength += PARAME6LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME6LENGTH;
-	ParamLength += PARAME7LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME7LENGTH;
-	ParamLength += PARAME8LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME8LENGTH;
-	ParamLength += PARAME9LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);
-	ParamStart += PARAME9LENGTH;
-	ParamLength += PARAME10LENGTH;
-	index++;
-	if (ParamLength > Frame.size())
-		return;
-	for (int k = ParamStart; k < ParamLength; k++)
-		Param[index].push_back(Frame[k]);*/
 
-}
